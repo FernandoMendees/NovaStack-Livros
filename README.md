@@ -29,21 +29,37 @@ O **NovaStack Livros** é um projeto focado na prática de conceitos fundamentai
 ## 🏗️ Estrutura do projeto
 
 BIBLIOTECA/
+
 │
+
 ├── index.html
+
 │
+
 ├── pages/
+
 │ └── livros.html
+
 │
+
 ├── js/
+
 │ └── script.js
+
 │
+
 ├── styles/
+
 │ ├── style.css
+
 │ └── livros.css
+
 │
+
 └── utils/
+
 └── menu.js
+
 
 ---
 
