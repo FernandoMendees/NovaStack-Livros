@@ -3,8 +3,8 @@
     --color-surface: #111827;
     --color-surface-2: #1f2937;
 
-    --color-primary: #3b82f6;
-    --color-primary-hover: #2563eb;
+    --color-primary: #145bcd;
+    --color-primary-hover: #476dc1;
 
     --color-text: #e5e7eb;
     --color-text-muted: #9ca3af;
@@ -22,6 +22,10 @@ body {
     background-color: var(--color-bg);
     color: var(--color-text);
     font-family: Arial, Helvetica, sans-serif;
+}
+
+hr {
+    margin: 20px;
 }
 
 .header-bar {
@@ -88,94 +92,59 @@ body {
     display: none;
 }
 
-
-.hero-section {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
+.descriptio-page {
+    margin: 20px;
     text-align: center;
-}
-
-.hero-title {
-    color: #e5f1fc;
-    text-shadow: 1px 1px 50px #00060b;
-    margin: 50px 0;
-    font-size: 2.3rem;
-}
-
-.hero-title h1 {
-    padding: 30px 0;
-}
-
-.hero-text {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 30px;
-
-}
-
-.hero-text strong {
-    margin: 20px 10px;
     font-size: 1.5rem;
 }
 
-.hero-text span {
-    margin: 0 5px;
-}
-
-.hero-section a {
+.button {
     background-color: var(--color-primary);
     color: var(--color-text);
-    text-decoration: none;
-    padding: 30px 50px;
-    border-radius: 16px;
+    font-size: 1.3rem;
+    margin: 25px;
+    padding: 25px;
+    border: none;
+    border-radius: 10px;
 }
 
-.hero-button {
-    margin: 70px;
+.button:hover {
+    background-color: var(--color-primary-hover);
 }
 
-
-.card-section {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 30px;
-    justify-content: center;
-    margin: 20px 0;
+.register-book {
+    margin: 10px;
+    max-width: 500px;
+    font-size: 1.3rem;
+    border: 1px solid var(--color-border);
+    border-radius: 15px;
+    box-shadow: 1px 1px 30px var(--color-surface);
     padding: 20px;
 }
 
-.card {
-    background-color: var(--color-surface-2);
+.register-book h2 {
     text-align: center;
-    width: 350px;
-    max-width: 480px;
-    height: 300px;
-    margin: auto;
-    padding: 10px;
-    border: 1px solid var(--color-border);
+}
+
+.form-book {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.0rem;
+}
+
+.form-book input {
+    background-color: #e5e7eb;
+    margin-bottom: 20px;
+    padding: 25px;
     border-radius: 16px;
+    border: 1px solid var(--color-border);
 }
 
-.card h2 {
-    font-size: 1.6rem;
-    padding: 10px;
+.form-book select {
+    background-color: #e5e7eb;
+    margin-bottom: 20px;
+    padding: 25px;
+    border-radius: 16px;
+    border: 1px solid var(--color-border);
 }
 
-.card p {
-    color: var(--color-text-muted);
-    font-size: 1.3rem;
-    margin: 30px;
-}
-
-
-
-
-@media (max-width: 480px) {
-    .hero-title {
-        margin: 90px 0 220px 0;
-        text-align: center;
-    }
-}

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros</title>
+    <link rel="stylesheet" href="../styles/livros.css">
+</head>
+
+<body>
+    <header class="header-bar">
+        <span class="title"><strong>Novastack | Livros</strong> </span>
+
+        <button class="menu-button" id="btn-menu">☰</button>
+
+        <nav class="nav-bar hidden" id="nav-bar">
+            <a href="index.html">Menu</a>
+            <a href="../pages/livros.html">Livros</a>
+            <a href="#">Emprestimos</a>
+        </nav>
+    </header>
+
+    <main>
+        <article class="descriptio-page">
+            Bem-vindo à área de livros! Aqui você pode registrar, organizar e acompanhar todos os livros da biblioteca
+            de forma simples e eficiente.
+
+            <div>
+                <button class="button">Registrar agora!</button>
+            </div>
+        </article>
+
+        <hr>
+
+        <section class="register-book">
+            <h2>Registre seu livro!</h2>
+
+            <hr>
+
+            <form class="form-book">
+                <label for="title-book">Nome</label>
+                <input type="text" id="title-book" placeholder="Nome do livro" required>
+
+                <label for="author-name">Autor</label>
+                <input type="text" id="author-name" placeholder="Autor do livro" required>
+
+                <label for="category">Categoria</label>
+                <select id="category" required>
+                    <option value="">--Selecione--</option>
+                    <option value="ficcao">Ficção</option>
+                    <option value="romance">Romance</option>
+                    <option value="fantasia">Fantasia</option>
+                    <option value="terror">Terror</option>
+                    <option value="suspense">Suspense</option>
+                    <option value="biografia">Biografia</option>
+                    <option value="historia">História</option>
+                    <option value="tecnologia">Tecnologia</option>
+                </select>
+
+                <label for="date-book">Ano de publicação</label>
+                <input type="date" id="date-book" required>
+
+                <label for="status">Status</label>
+                <select id="status" required>
+                    <option value="disponivel">Disponível</option>
+                    <option value="emprestado">Emprestado</option>
+                </select>
+
+                <button type="submit" class="button">Registrar</button>
+            </form>
+
+        </section>
+    </main>
+
+</body>
+<script type="module" src="../js/script.js"></script>
+
+</html>
