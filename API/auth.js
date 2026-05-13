@@ -10,17 +10,19 @@ export async function registerUser(name, email, password) {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
-            }
+            },
+            body: JSON.stringify(user)
         });
 
-        if (!response.ok) throw new Error(`Erro: ${response.status}`);
+        if (!response.ok) throw new Error("Algo deu errado.. Tente novamente.");
 
         const data = await response.json();
 
         return data;
 
-    } catch (erro) {
-        console.error(`Erro ${erro}`);
+    } catch (error) {
+        throw error
+        console.log(response.status);
     }
 
 };
@@ -46,7 +48,7 @@ export async function loginUser(email, password) {
 
         return data;
         
-    } catch (erro){
-        console.error(`Erro ${erro}`);
+    } catch (error){
+        throw error;
     }
 }
