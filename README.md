@@ -1,92 +1,135 @@
 # 📚 NovaStack Livros
 
-Aplicação web simples para gerenciamento de livros, desenvolvida com **HTML, CSS e JavaScript puro**, com navegação entre páginas e persistência de dados no navegador.
+Aplicação web para gerenciamento de livros com autenticação de usuário, desenvolvida com **HTML, CSS e JavaScript puro**, consumindo uma **API REST**.
 
 ---
 
 ## 🚀 Sobre o projeto
 
-O **NovaStack Livros** é um projeto focado na prática de conceitos fundamentais do desenvolvimento front-end, incluindo:
+O NovaStack Livros é uma aplicação front-end estruturada para simular um fluxo real de sistema com autenticação e consumo de API.
 
-- Manipulação do DOM
-- Organização de código em múltiplos arquivos
-- Separação de responsabilidades (pages, styles, utils)
-- Persistência de dados com LocalStorage
+O projeto foca em:
+
+- Manipulação do DOM  
+- Organização de código em múltiplos arquivos  
+- Separação de responsabilidades (pages, styles, utils, API)  
+- Consumo de API REST  
+- Controle de autenticação no cliente  
 
 ---
 
-## 🧠 Funcionalidades atuais
+## 🧠 Funcionalidades
 
--  Página principal (`index.html`)
--  Página dedicada para livros (`pages/livros.html`)
--  Organização modular do JavaScript
--  Uso de LocalStorage para armazenamento de dados
--  Manipulação de dados estruturados (provavelmente objetos/arrays)
--  Menu reutilizável (`utils/menu.js`)
+- Sistema de autenticação (login e cadastro)  
+- Consumo de API para operações da aplicação  
+- Armazenamento de token no navegador  
+- Navegação entre páginas  
+- Manipulação de dados com JavaScript  
+- Tratamento de erros reutilizável  
 
 ---
 
 ## 🏗️ Estrutura do projeto
-
-BIBLIOTECA/
-
+BIBLIO/
 │
-
-├── index.html
-
+├── API/
+│ ├── auth.js
+│ └── token.js
 │
-
-├── pages/
-
-│ └── livros.html
-
-│
-
 ├── js/
-
 │ └── script.js
-
 │
-
+├── pages/
+│ ├── cadastro.html
+│ ├── livros.html
+│ └── login.html
+│
 ├── styles/
-
-│ ├── style.css
-
-│ └── livros.css
-
+│ ├── livros.css
+│ ├── login.css
+│ └── style.css
 │
-
-└── utils/
-
-└── menu.js
+├── utils/
+│ ├── menu.js
+│ ├── resetButton.js
+│ └── showError.js
+│
+├── index.html
+└── README.md
 
 
 ---
 
 ## 🧩 Organização do código
 
-### 📁 `pages/`
-Contém páginas secundárias da aplicação, como a área de livros.
+### 📁 API/
+Responsável pela comunicação com o backend:
 
-### 📁 `js/`
-Responsável pela lógica principal da aplicação:
-- Manipulação de dados
-- Interação com o DOM
-- Integração com LocalStorage
-
-### 📁 `styles/`
-Arquivos de estilização separados por contexto:
-- `style.css` → estilos globais (mais focado no index.html)
-- `livros.css` → estilos específicos da página de livros
-
-### 📁 `utils/`
-Funções reutilizáveis:
-- `menu.js` → controle de menu
+- `auth.js` → requisições de autenticação  
+- `token.js` → gerenciamento do token no navegador  
 
 ---
 
+### 📁 js/
+Responsável pela lógica da aplicação:
+
+- Integração com a API  
+- Manipulação do DOM  
+- Controle do fluxo da aplicação  
+
+---
+
+### 📁 pages/
+Contém as páginas da aplicação:
+
+- `login.html` → autenticação  
+- `cadastro.html` → criação de conta  
+- `livros.html` → área principal  
+
+---
+
+### 📁 styles/
+Arquivos de estilização:
+
+- `style.css` → estilos globais  
+- `login.css` → estilos de autenticação  
+- `livros.css` → estilos da página de livros  
+
+---
+
+### 📁 utils/
+Funções reutilizáveis:
+
+- `menu.js` → controle de menu  
+- `resetButton.js` → controle de estado de botões  
+- `showError.js` → exibição de erros  
+
+---
+
+## 🔐 Autenticação
+
+A aplicação utiliza autenticação baseada em token:
+
+- O token é retornado pela API após login/cadastro  
+- O token é armazenado no **LocalStorage**  
+- O uso do LocalStorage é exclusivo para manter o usuário autenticado  
+
+---
+
+## 🌐 Consumo de API
+
+A aplicação consome uma API REST para:
+
+- Autenticação de usuários  
+- Operações da aplicação  
+
+As requisições são organizadas em módulos para melhor manutenção.
+
+---
+
+- Este projeto reflete meu nível atual de conhecimento, sendo construído com foco na aplicação prática dos conceitos estudados e na evolução contínua como desenvolvedor.
+
 ## ▶️ Como executar
 
-1. Clone o repositório:
 ```bash
 git clone https://github.com/FernandoMendees/NovaStack-Livros.git
