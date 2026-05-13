@@ -21,8 +21,7 @@ export async function registerUser(name, email, password) {
         return data;
 
     } catch (error) {
-        throw error
-        console.log(response.status);
+        throw error;
     }
 
 };
@@ -42,7 +41,7 @@ export async function loginUser(email, password) {
             body: JSON.stringify(user)
         });
 
-        if (!response.ok) throw new Error(`Erro: ${response.status}`);
+        if (!response.ok) throw new Error("Algo deu errado.. Tente novamente.");
 
         const data = await response.json();
 
