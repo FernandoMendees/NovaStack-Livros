@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="../styles/login.css">
+</head>
+
+<body>
+    <header class="header-bar">
+        <span class="title"><strong>Novastack | Cadastro</strong> </span>
+
+        <button class="menu-button" id="btn-menu">☰</button>
+
+        <nav class="nav-bar hidden" id="nav-bar">
+            <a href="../pages/login.html">Login</a>
+        </nav>
+    </header>
+
+    <main>
+        <section class="container">
+            <div class="card">
+                <h2>Cadastro</h2>
+                <form id="form-register">
+                    <label for="name-register">Nome</label>
+                    <input type="text" id="name-register" placeholder="Seu nome" required>
+
+                    <label for="email-register">Email</label>
+                    <input type="email" id="email-register" placeholder="email@exemplo.com" required>
+
+                    <label for="password-register">Senha</label>
+                    <input type="password" id="password-register" placeholder="••••••••" minlength="8" required>
+
+                    <button type="submit">Cadastrar</button>
+                </form>
+
+                <p>Ja tem uma conta? Faça <a href="#">Login</a>.</p>
+            </div>
+
+        </section>
+    </main>
+
+</body>
+
+<script type="module" src="../js/script.js"></script>
+
+</html>
