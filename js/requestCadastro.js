@@ -43,4 +43,5 @@ formRegister.addEventListener("submit", async (event) => {
     } finally {
         resetButton(submitBtn, "Cadastrar")
     }
+    
 });

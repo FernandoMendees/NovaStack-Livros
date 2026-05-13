@@ -44,4 +44,5 @@ formLogin.addEventListener("submit", async (event) => {
     } finally {
         resetButton(submitBtn, "Login");
     }
+    
 });
