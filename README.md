@@ -30,31 +30,55 @@ O projeto foca em:
 ---
 
 ## 🏗️ Estrutura do projeto
-BIBLIO/
+BIBLIOTECA/
 │
+
 ├── API/
+
 │ ├── auth.js
+
 │ └── token.js
+
 │
+
 ├── js/
+
 │ └── script.js
+
 │
+
 ├── pages/
+
 │ ├── cadastro.html
+
 │ ├── livros.html
+
 │ └── login.html
+
 │
+
 ├── styles/
+
 │ ├── livros.css
+
 │ ├── login.css
+
 │ └── style.css
+
 │
+
 ├── utils/
+
 │ ├── menu.js
+
 │ ├── resetButton.js
+
 │ └── showError.js
+
 │
+
 ├── index.html
+
 └── README.md
 
 
