@@ -1,7 +1,7 @@
-import { showError } from "../utils/showError.js";
-import { resetButton } from "../utils/resetButton.js";
+import { showError } from "../../utils/showError.js";
+import { resetButton } from "../../utils/resetButton.js";
 import { saveAuthToken } from "../API/token.js";
-import { loginUser } from "../API/auth.js";
+import { registerUser } from "../API/auth.js";
 
 const message = document.getElementById("message");
 const formRegister = document.getElementById("form-register");
