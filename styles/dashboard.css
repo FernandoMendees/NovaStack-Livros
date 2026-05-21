@@ -1,0 +1,193 @@
+:root {
+    --bg: #0f1115;
+    --surface: #171923;
+    --surface-2: #202124;
+
+    --primary: #8ab4f8;
+    --primary-hover: #669df6;
+
+    --text: #e8eaed;
+    --muted: #9aa0a6;
+
+    --border: #ffffff14;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+}
+
+.dashboard{
+    display: flex;
+    height: 100vh;
+}
+
+.sidebar{
+    display: flex;
+    flex-direction: column;
+
+    width: 260px;
+    padding: 16px;
+
+    color: var(--text);
+    border-right: 1px solid rgba(255, 255, 255, 0.06);
+    /*background-color: var(--surface-2);*/
+       background: linear-gradient(
+        200deg,
+        var(--surface-2),
+        var(--bg)
+    );
+}
+
+.sidebar h2{
+    margin-left: 20%;
+}
+
+.sidebar p{
+    margin-top: auto;
+
+    font-size: 12px;
+    color: var(--muted);
+
+    padding: 8px 6px;
+}
+
+
+nav{
+    margin-top: 16px;
+    display: flex;
+    flex-direction: column;
+    background-color: var(--bg);
+    border-radius: 16px;
+    padding: 16px;
+}
+
+
+.menu-item{
+    
+    width: 100%;
+    padding: 12px 8px;
+
+    text-decoration: none;
+    text-align: left;
+    cursor: pointer;
+    
+    margin-bottom: 10px;
+    border-radius: 12px;
+    border: none;
+    
+    background-color: transparent;
+    color: var(--text);
+
+    display: flex;
+    align-items: center;
+
+
+    transition: 180ms ease;
+}
+
+.menu-item:hover{
+    color: var(--primary);
+    margin-left: 5px;
+    background-color: var(--surface);
+}
+
+.menu-item span{
+    color: var(--primary-hover);
+}
+
+.main-container{
+    margin: 20px;
+}
+
+#clients-list{
+
+    background-color: var(--surface);
+    border-radius: 16px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    margin:  auto;
+    
+
+
+    
+}
+
+.client-card{
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+
+    flex-direction: column;
+    min-width: 900px;
+    margin:  0px auto 10px auto;
+    border: 1px solid rgba(255, 254, 254, 0.223);
+
+}
+
+
+
+@media (max-width: 768px) {
+
+    .sidebar {
+        position: fixed;
+
+        bottom: 0;
+        left: 0;
+
+        width: 100%;
+        height: 70px;
+
+        padding: 10px 20px;
+
+        border-right: none;
+        border-top: 1px solid rgba(255,255,255,0.08);
+
+        z-index: 1000;
+    }
+
+    nav {
+        margin-top: 0;
+
+        display: flex;
+        flex-direction: row;
+
+        align-items: center;
+        justify-content: space-around;
+
+        height: 100%;
+    }
+
+    .menu-item {
+
+        font-size: 10px;
+        width: auto;
+        flex: 1;
+
+        display: flex;
+
+        justify-content: center;
+        align-items: center;
+
+        padding: 6px;
+    }
+
+    .sidebar h2,
+    .sidebar p {
+        display: none;
+    }
+
+    .client-card{
+    min-width: 200px;
+
+}
+
+}
