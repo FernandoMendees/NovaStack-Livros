@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Livros</title>
+    <link rel="stylesheet" href="../../styles/dashboard.css">
+</head>
+
+<body>
+    <section class="dashboard">
+        <aside class="sidebar">
+            <h2>NovaStack</h2>
+
+            <nav class="navbar">
+                <button class="menu-item">
+                    <span>Registrar</span>
+                </button>
+
+                <a href="catalogo.html" class="menu-item">Catálogo</a>
+
+                <a href="./emprestimos.html" class="menu-item">Emprestimos</a>
+
+                <a href="./clientes.html" class="menu-item">Clientes</a>
+            </nav>
+
+            <p>
+                Gerencie livros, empréstimos e clientes de forma simples,
+                rápida e organizada com o sistema da NovaStack.
+            </p>
+
+        </aside>
+
+        <main class="main-container">
+            <section class="register-book">
+                <h2>Registre seu item!</h2>
+
+                <hr>
+
+                <form class="form-book">
+                    <label for="category">Categoria</label>
+                    <select id="category" required>
+                        <option value="">--Selecione--</option>
+                        <option value="ficcao">Ficção</option>
+                        <option value="romance">Romance</option>
+                        <option value="acao">Ação</option>
+                        <option value="academico">Academico</option>
+                    </select>
+
+                    <label for="title-book">Nome</label>
+                    <input type="text" id="title-book" placeholder="Nome do livro" required>
+
+                    <label for="date-book">Ano de publicação</label>
+                    <input type="date" id="date-book" required>
+
+                    <button type="submit" class="button">Registrar</button>
+                </form>
+
+            </section>
+        </main>
+
+    </section>
+
+</body>
+<script type="module" src="../js/script.js"></script>
+
+</html>
