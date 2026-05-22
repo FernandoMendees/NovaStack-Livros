@@ -24,20 +24,21 @@ O projeto foca em:
 - Tratamento de erros reutilizável
 - Estrutura modular para crescimento
 
-🏗️ Estrutura do projeto
+## 🏗️ Estrutura do projeto
 
+```bash
 BIBLIOTECA/
 │
 ├── API/
-│   ├── request/
-│   │   ├── auth.js
-│   │   ├── books.js
-│   │   ├── clients.js
-│   │   └── token.js
+│   └── request/
+│       ├── auth.js
+│       ├── books.js
+│       ├── clients.js
+│       └── token.js
 │
 ├── js/
-│       ├── clientes.js
-│       └── script.js
+│   ├── clientes.js
+│   └── script.js
 │
 ├── pages/
 │   ├── dashboard/
@@ -61,6 +62,7 @@ BIBLIOTECA/
 │
 ├── index.html
 └── README.md
+```
 
 🧩 Organização do código
 
