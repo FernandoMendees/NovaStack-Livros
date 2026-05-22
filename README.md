@@ -1,159 +1,141 @@
-# 📚 NovaStack Livros
+📚 NovaStack Livros
 
-Aplicação web para gerenciamento de livros com autenticação de usuário, desenvolvida com **HTML, CSS e JavaScript puro**, consumindo uma **API REST**.
+Aplicação web para gerenciamento de livros com autenticação de usuário, desenvolvida com HTML, CSS e JavaScript puro, consumindo uma API REST.
 
----
+🚀 Sobre o projeto
 
-## 🚀 Sobre o projeto
-
-O NovaStack Livros é uma aplicação front-end estruturada para simular um fluxo real de sistema com autenticação e consumo de API.
+O NovaStack Livros é uma aplicação front-end estruturada para simular um sistema real com autenticação e múltiplos módulos organizados.
 
 O projeto foca em:
 
-- Manipulação do DOM  
-- Organização de código em múltiplos arquivos  
-- Separação de responsabilidades (pages, styles, utils, API)  
-- Consumo de API REST  
-- Controle de autenticação no cliente  
+- Manipulação do DOM
+- Organização escalável de código
+- Separação de responsabilidades
+- Consumo de API REST
+- Controle de autenticação no cliente
 
----
+🧠 Funcionalidades
 
-## 🧠 Funcionalidades
+- Sistema de autenticação (login e cadastro)
+- Armazenamento de token no navegador (LocalStorage)
+- Consumo de API para diferentes recursos
+- Navegação entre páginas
+- Manipulação dinâmica de dados
+- Tratamento de erros reutilizável
+- Estrutura modular para crescimento
 
-- Sistema de autenticação (login e cadastro)  
-- Consumo de API para operações da aplicação  
-- Armazenamento de token no navegador  
-- Navegação entre páginas  
-- Manipulação de dados com JavaScript  
-- Tratamento de erros reutilizável  
+🏗️ Estrutura do projeto
 
----
-
-## 🏗️ Estrutura do projeto
 BIBLIOTECA/
 │
-
 ├── API/
-
-│ ├── auth.js
-
-│ └── token.js
-
+│   ├── request/
+│   │   ├── auth.js
+│   │   ├── books.js
+│   │   ├── clients.js
+│   │   └── token.js
+│   │
+│   └── js/
+│       ├── clientes.js
+│       └── script.js
 │
-
-├── js/
-
-│ └── script.js
-
-│
-
 ├── pages/
-
-│ ├── cadastro.html
-
-│ ├── livros.html
-
-│ └── login.html
-
+│   ├── dashboard/
+│   │   ├── catalogo.html
+│   │   ├── clientes.html
+│   │   ├── emprestimos.html
+│   │   └── itens.html
+│   │
+│   ├── cadastro.html
+│   └── login.html
 │
-
 ├── styles/
-
-│ ├── livros.css
-
-│ ├── login.css
-
-│ └── style.css
-
+│   ├── dashboard.css
+│   ├── login.css
+│   └── style.css
 │
-
 ├── utils/
-
-│ ├── menu.js
-
-│ ├── resetButton.js
-
-│ └── showError.js
-
+│   ├── menu.js
+│   ├── resetButton.js
+│   └── showError.js
 │
-
 ├── index.html
-
 └── README.md
 
+🧩 Organização do código
 
----
+📁 API/request/
+Responsável pelas requisições à API:
 
-## 🧩 Organização do código
+- auth.js → autenticação de usuários
+- books.js → operações relacionadas a livros
+- clients.js → operações relacionadas a clientes
+- token.js → gerenciamento de token
 
-### 📁 API/
-Responsável pela comunicação com o backend:
+📁 js/
+Responsável pela lógica de integração:
 
-- `auth.js` → requisições de autenticação  
-- `token.js` → gerenciamento do token no navegador  
+- Manipulação do DOM
+- Integração com API
+- Controle de fluxo da aplicação
 
----
+📁 pages/
+Estrutura das páginas da aplicação:
 
-### 📁 js/
-Responsável pela lógica da aplicação:
+- login.html → autenticação
+- cadastro.html → criação de conta
+- dashboard/ → área principal do sistema
+  - catalogo → listagem de livros
+  - clientes → gerenciamento de clientes
+  - emprestimos → controle de empréstimos
+  - itens → itens cadastrados
 
-- Integração com a API  
-- Manipulação do DOM  
-- Controle do fluxo da aplicação  
-
----
-
-### 📁 pages/
-Contém as páginas da aplicação:
-
-- `login.html` → autenticação  
-- `cadastro.html` → criação de conta  
-- `livros.html` → área principal  
-
----
-
-### 📁 styles/
+📁 styles/
 Arquivos de estilização:
 
-- `style.css` → estilos globais  
-- `login.css` → estilos de autenticação  
-- `livros.css` → estilos da página de livros  
+- style.css → estilos globais
+- login.css → autenticação
+- dashboard.css → páginas internas
 
----
-
-### 📁 utils/
+📁 utils/
 Funções reutilizáveis:
 
-- `menu.js` → controle de menu  
-- `resetButton.js` → controle de estado de botões  
-- `showError.js` → exibição de erros  
+- menu.js → controle de navegação/menu
+- resetButton.js → controle de estado de botões
+- showError.js → tratamento e exibição de erros
 
----
-
-## 🔐 Autenticação
+🔐 Autenticação
 
 A aplicação utiliza autenticação baseada em token:
 
-- O token é retornado pela API após login/cadastro  
-- O token é armazenado no **LocalStorage**  
-- O uso do LocalStorage é exclusivo para manter o usuário autenticado  
+- Token retornado pela API após login/cadastro
+- Armazenamento no LocalStorage
+- Uso exclusivo para manter o usuário autenticado
 
----
-
-## 🌐 Consumo de API
+🌐 Consumo de API
 
 A aplicação consome uma API REST para:
 
-- Autenticação de usuários  
-- Operações da aplicação  
+- Autenticação de usuários
+- Gerenciamento de livros
+- Gerenciamento de clientes
+- Operações do sistema (empréstimos, itens, etc.)
 
-As requisições são organizadas em módulos para melhor manutenção.
+As requisições são organizadas em módulos para facilitar manutenção e escalabilidade.
 
----
+💡 Observação
 
-- Este projeto reflete meu nível atual de conhecimento, sendo construído com foco na aplicação prática dos conceitos estudados e na evolução contínua como desenvolvedor.
+O uso do LocalStorage é apenas para persistência de autenticação, não sendo utilizado como banco de dados da aplicação.
 
-## ▶️ Como executar
+🧠 Sobre o desenvolvimento
+
+Este projeto reflete meu nível atual de conhecimento, sendo desenvolvido com foco em:
+
+- Aplicação prática dos conceitos estudados
+- Evolução contínua como desenvolvedor
+- Estruturação de projetos reais
+
+▶️ Como executar
 
 ```bash
 git clone https://github.com/FernandoMendees/NovaStack-Livros.git
