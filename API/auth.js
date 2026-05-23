@@ -6,7 +6,7 @@ export async function registerUser(name, email, password) {
     };
 
     try {
-        const response = await fetch("#", {
+        const response = await fetch("http://localhost:8080/auth/register", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"
@@ -33,7 +33,7 @@ export async function loginUser(email, password) {
     };
 
     try {
-        const response = await fetch("#", {
+        const response = await fetch("http://localhost:8080/auth/login", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json"

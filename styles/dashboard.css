@@ -9,7 +9,7 @@
     --text: #eeeeef;
     --muted: #9aa0a6;
 
-    --border: #5a5a5a14;
+    --border: #5a5a5a5b;
 }
 
 * {
@@ -28,30 +28,28 @@ hr {
     margin: 20px;
 }
 
-.dashboard{
+.dashboard {
     display: flex;
     height: 100vh;
 }
 
-.sidebar{
+.sidebar {
     display: flex;
     flex-direction: column;
     width: 260px;
     padding: 16px;
     color: var(--text);
     border-right: 1px solid rgba(255, 255, 255, 0.06);
-       background: linear-gradient(
-        200deg,
-        var(--surface-2),
-        var(--bg)
-    );
+    background: linear-gradient(200deg,
+            var(--surface-2),
+            var(--bg));
 }
 
-.sidebar h2{
+.sidebar h2 {
     margin-left: 20%;
 }
 
-.sidebar p{
+.sidebar p {
     margin-top: auto;
     font-size: 1.0rem;
     color: var(--muted);
@@ -59,16 +57,16 @@ hr {
 }
 
 
-nav{
+nav {
     margin-top: 16px;
     display: flex;
     flex-direction: column;
     background-color: var(--bg);
     border-radius: 16px;
-    padding: 16px;
+    padding: 20px;
 }
 
-.menu-item{
+.menu-item {
     width: 100%;
     padding: 12px 8px;
     text-decoration: none;
@@ -85,40 +83,41 @@ nav{
     transition: 180ms ease;
 }
 
-.menu-item:hover{
+.menu-item:hover {
     color: var(--primary);
     margin-left: 5px;
     background-color: var(--surface);
 }
 
-.menu-item span{
+.menu-item span {
     color: var(--primary-hover);
 }
 
-.main-container{
+.main-container {
     width: 100%;
     margin: 20px;
 }
+
 .description {
     text-align: center;
 }
 
-#clients-list{
+#clients-list {
     background-color: var(--surface);
     border-radius: 16px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    margin:  auto;    
+    margin: auto;
 }
 
-.client-card{
+.client-card {
     border-radius: 12px;
     padding: 20px;
     display: flex;
     flex-direction: column;
     min-width: 900px;
-    margin:  0px auto 10px auto;
+    margin: 0px auto 10px auto;
     border: 1px solid rgba(255, 254, 254, 0.223);
 }
 
@@ -171,6 +170,80 @@ nav{
     border: 1px solid var(--color-border);
 }
 
+.select-item {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    padding: 20px;
+    border-bottom: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.select-item span {
+    font-size: 1.7rem;
+    text-align: center;
+}
+
+.select-item select {
+    background-color: var(--surface-2);
+    color: var(--text);
+    border: 1px solid var(--border);
+    border-radius: 17px;
+    font-size: 1.7rem;
+    width: 100%;
+    padding: 15px;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.select-item button {
+    background-color: var(--primary);
+    color: var(--text);
+    width: 50%;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.section-register {
+    background-color: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 100px;
+    padding: 20px;
+    box-shadow: var(--surface-2);
+}
+
+.section-register form,
+.complement {
+    display: flex;
+    flex-direction: column;
+    font-size: 1.7rem;
+}
+
+.complement {
+    margin: 15px 0;
+}
+
+.section-register input,
+.complement input, select {
+    background-color: var(--surface-2);
+    color: var(--text);
+    font-size: 1.2rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 15px;
+    margin-bottom: 10px;
+}
+
+label {
+    margin-left: 10px;
+}
+
 @media (max-width: 768px) {
 
     .sidebar {
@@ -178,10 +251,10 @@ nav{
         bottom: 0;
         left: 0;
         width: 100%;
-        height: 70px;
+        height: 100px;
         padding: 10px 20px;
         border-right: none;
-        border-top: 1px solid rgba(255,255,255,0.08);
+        border-top: 1px solid rgba(255, 255, 255, 0.08);
         z-index: 1000;
     }
 
@@ -189,19 +262,17 @@ nav{
         margin-top: 0;
         display: flex;
         flex-direction: row;
-        align-items: center;
-        justify-content: space-around;
         height: 100%;
+        padding: 30px;
     }
 
     .menu-item {
-        font-size: 10px;
+        font-size: 1.0rem;
         width: auto;
         flex: 1;
         display: flex;
-        justify-content: center;
         align-items: center;
-        padding: 6px;
+        justify-content: space-around;
     }
 
     .sidebar h2,
@@ -209,7 +280,11 @@ nav{
         display: none;
     }
 
-    .client-card{
-    min-width: 200px;
+    .client-card {
+        min-width: 200px;
     }
+}
+
+.hidden {
+    display: none;
 }
