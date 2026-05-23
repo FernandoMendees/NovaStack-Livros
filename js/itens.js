@@ -1,3 +1,5 @@
+import { complementBook, complementMagazine, complementMedia, complementMonograph } from "../components/complementItens.js";
+
 const btnConfirm = document.getElementById("confirm-item");
 const complement = document.getElementById("form-complement");
 const sectionForm = document.getElementById("section-form");
@@ -8,22 +10,22 @@ btnConfirm.addEventListener("click", () => {
     //teste!!!
     switch(selectValue){
         case 'book':
-            complement.innerHTML = "<p>Livro</p>";
+            complement.innerHTML = complementBook();
             sectionForm.classList.remove("hidden");
             return;
 
         case 'media':
-            complement.innerHTML = "<p>Mídia</p>";
+            complement.innerHTML = complementMedia();
             sectionForm.classList.remove("hidden");
             return;
 
         case 'magazine':
-            complement.innerHTML = "<p>Periódicos</p>";
+            complement.innerHTML = complementMagazine();
             sectionForm.classList.remove("hidden");
             return;
         
         case 'monograph':
-            complement.innerHTML = "<p>Monografia</p>";
+            complement.innerHTML = complementMonograph();
             sectionForm.classList.remove("hidden");
             return;
 

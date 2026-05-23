@@ -30,7 +30,7 @@ hr {
 
 .dashboard {
     display: flex;
-    height: 100vh;
+    min-height: 100vh;
 }
 
 .sidebar {
@@ -50,7 +50,7 @@ hr {
 }
 
 .sidebar p {
-    margin-top: auto;
+    
     font-size: 1.0rem;
     color: var(--muted);
     padding: 8px 6px;
