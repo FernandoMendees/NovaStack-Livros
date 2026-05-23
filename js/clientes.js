@@ -5,10 +5,10 @@ document.addEventListener("DOMContentLoaded", async () => {
     const token = localStorage.getItem("TOKEN");
     const container = document.getElementById("clients-list");
 
-    if (!token) {
-        window.location.href = "../login.html";
-        return;
-    }
+    // if (!token) {
+    //     window.location.href = "../login.html";
+    //     return;
+    // }
 
     try {
         const clients = await getClients(token);

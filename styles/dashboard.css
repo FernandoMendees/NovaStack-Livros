@@ -205,6 +205,7 @@ nav {
     padding: 20px;
     border: 1px solid var(--border);
     border-radius: 16px;
+    font-size: 1.5rem;
 }
 
 .section-register {
@@ -238,6 +239,23 @@ nav {
     border-radius: 16px;
     padding: 15px;
     margin-bottom: 10px;
+}
+
+.section-register button {
+    background-color: var(--primary);
+    color: var(--text);
+    font-size: 1.5rem;
+    width: 50%;
+    padding: 20px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.button-form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    
 }
 
 label {
@@ -285,6 +303,7 @@ label {
     }
 }
 
+/*Deixe isso sempre por ultimo Edimar... é serio.*/
 .hidden {
     display: none;
 }

@@ -41,7 +41,7 @@
                 <div class="select-item">
                     <span>Informe o item que deseja cadastrar</span>
 
-                    <select>
+                    <select id="select-item">
                         <option value="book">Livro</option>
                         <option value="media">Mídia</option>
                         <option value="magazine">Periódicos</option>
@@ -51,7 +51,7 @@
                     <button id="confirm-item">Confirmar</button>
                 </div>
 
-                <section class="section-register hidden">
+                <section class="section-register hidden" id="section-form">
                     <form id="form-register">
                         <label for="title">Titulo</label>
                         <input type="text" id="title" placeholder="Titulo do item" required>
@@ -68,7 +68,10 @@
                                 <option value="">Ação</option>
                                 <option value="">Ficção</option>
                             </select>
-                            
+                        </div>
+
+                        <div class="button-form">
+                            <button type="submit">Registrar</button>
                         </div>
                     </form>
                 </section>
@@ -79,5 +82,6 @@
 
 </body>
 <script type="module" src="../js/script.js"></script>
+<script src="../../js/itens.js"></script>
 
 </html>
