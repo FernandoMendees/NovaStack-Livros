@@ -29,6 +29,8 @@ export function complementMedia() {
         <option value="ebook">eBook</option>
         <option value="audiobook">Audiobook</option>
     </select>
+    <label for="duration">Duração</label>
+    <input type="number" id="duration" placeholder="Ex: 5 (minutos)" required>
     `
 }
 
