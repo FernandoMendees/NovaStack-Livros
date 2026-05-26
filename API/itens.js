@@ -7,7 +7,7 @@ export async function registerBook(token, name, author, releaseDate, category) {
     };
 
     try {
-        const response = await fetch("http://localhost:8080/book", {
+        const response = await fetch("http://localhost:8080/book/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -16,7 +16,7 @@ export async function registerBook(token, name, author, releaseDate, category) {
             body: JSON.stringify(book)
         });
 
-        if (!response.ok) throw new Error("Não foi possível registrar o livro.");
+        if (!response.ok) throw new Error("Não foi possível registrar o livro. " + response.status);
 
     } catch (error) {
         throw error;
@@ -30,12 +30,12 @@ export async function registerMedia(token, name, author, releaseDate, format, du
         name,
         author,
         releaseDate,
-        format,
-        duration
+        mediaFormat,
+        durationTime
     };
 
     try {
-        const response = await fetch("http://localhost:8080/media", {
+        const response = await fetch("http://localhost:8080/media/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -57,11 +57,11 @@ export async function registerMagazine(token, name, author, releaseDate, edition
         name,
         author,
         releaseDate,
-        edition
+        editionNumber
     };
 
     try {
-        const response = await fetch("http://localhost:8080/magazine", {
+        const response = await fetch("http://localhost:8080/magazine/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",
@@ -88,7 +88,7 @@ export async function registerMonograph(token, name, author, releaseDate, instit
     };
 
     try {
-        const response = await fetch("http://localhost:8080/monograph", {
+        const response = await fetch("http://localhost:8080/monograph/create", {
             method: "POST",
             headers: {
                 "Content-Type": "application/json",

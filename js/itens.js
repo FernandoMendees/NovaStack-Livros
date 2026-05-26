@@ -14,38 +14,42 @@ btnConfirm.addEventListener("click", () => {
             sectionForm.classList.remove("hidden");
             return;
         }
-            
+
         case 'media': {
             complement.innerHTML = complementMedia();
             sectionForm.classList.remove("hidden");
             return;
         }
-            
+
         case 'magazine': {
             complement.innerHTML = complementMagazine();
             sectionForm.classList.remove("hidden");
             return;
         }
-            
+
         case 'monograph': {
             complement.innerHTML = complementMonograph();
             sectionForm.classList.remove("hidden");
             return;
-        }};
+        }
+    };
 })
 
 const formItens = document.getElementById("form-itens");
 
 formItens.addEventListener("submit", async (event) => {
     event.preventDefault();
-    const selectValue = document.getElementById("select-item").value;
+    const button = event.submitter; 
+    button.disabled = true;
 
+    const token = localStorage.getItem("TOKEN");
+
+    const selectValue = document.getElementById("select-item").value;
     const titleItem = document.getElementById("title").value.trim();
     const authorItem = document.getElementById("author").value.trim();
     const releaseDate = document.getElementById("date-publi").value.trim();
 
-    const token = localStorage.getItem("TOKEN")
-    if(!token) {
+    if (!token) {
         window.location.replace("../login.html");
         return;
     }
@@ -64,14 +68,14 @@ formItens.addEventListener("submit", async (event) => {
                 await registerMedia(token, titleItem, authorItem, releaseDate, format, Number(duration));
                 return;
             }
-                
+
 
             case 'magazine': {
                 const edition = document.getElementById("editionNumber").value;
                 await registerMagazine(token, titleItem, authorItem, releaseDate, Number(edition));
                 return;
             }
-                
+
 
             case 'monograph': {
                 const institution = document.getElementById("institution").value;
@@ -81,6 +85,8 @@ formItens.addEventListener("submit", async (event) => {
             }
         };
     } catch (error) {
-        console.log("Erro ao cadastrar" + error.message);
+        console.log("Erro ao cadastrar " + error.message);
+    } finally {
+        button.disabled = false;
     }
 });

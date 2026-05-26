@@ -3,10 +3,10 @@ export function complementBook() {
     <label for="category">Categoria</label>
     <select id="category">
         <option value="">-- Selecione --</option>
-        <option value="ficcao">Ficção</option>
+        <option value="fiction">Ficção</option>
         <option value="romance">Romance</option>
-        <option value="historia">História</option>
-        <option value="biografia">Biografia</option>
+        <option value="action">Ação</option>
+        <option value="academy">Academico</option>
     </select>
     `
 }
