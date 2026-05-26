@@ -174,7 +174,25 @@ body {
     margin: 30px;
 }
 
+.footer {
+    display: flex;
+    background-color: var(--surface);
+    color: var(--muted);
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+.footer a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.0rem;
+}
 
+.content {
+    margin: auto;
+}
 
 
 @media (max-width: 480px) {

@@ -50,7 +50,7 @@ hr {
 }
 
 .sidebar p {
-    
+
     font-size: 1.0rem;
     color: var(--muted);
     padding: 8px 6px;
@@ -231,7 +231,8 @@ nav {
 }
 
 .section-register input,
-.complement input, select {
+.complement input,
+select {
     background-color: var(--surface-2);
     color: var(--text);
     font-size: 1.2rem;
@@ -255,11 +256,32 @@ nav {
     display: flex;
     justify-content: center;
     align-items: center;
-    
+
 }
 
 label {
     margin-left: 10px;
+}
+
+.footer {
+    display: flex;
+    background-color: var(--surface);
+    color: var(--muted);
+    height: 150px;
+    padding: 20px;
+    text-align: center;
+    border-top: 1px solid var(--border);
+    font-size: 0.9rem;
+}
+
+.footer a {
+    text-decoration: none;
+    color: var(--text);
+    font-size: 1.0rem;
+}
+
+.content {
+    margin: auto;
 }
 
 @media (max-width: 768px) {
@@ -300,6 +322,10 @@ label {
 
     .client-card {
         min-width: 200px;
+    }
+
+    .footer {
+        display: none;
     }
 }
 
