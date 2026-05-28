@@ -28,7 +28,7 @@
     margin-left: 10px;
 }
 
-.data h3 {
+.name {
     font-size: 1.7rem;
     padding-left: 20px;
 }
@@ -37,8 +37,8 @@
     background-color: rgb(62, 49, 145) !important;
 }
 
-.data span,
-.data p {
+.type,
+.acess-code {
     background-color: var(--muted);
     color: #101217;
     max-width: 120px;
@@ -48,6 +48,19 @@
     border-radius: 20px;
 }
 
+.btn-edit {
+    display: flex;
+}
+
+.btn {
+    background-color: var(--surface-2);
+    color: var(--muted);
+    margin: auto;
+    padding: 15px 15px 12px 15px; /*saporra n centraliza o svg fds tb kkkk*/
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 1.5rem;
+}
 
 .image {
     display: flex;
@@ -56,12 +69,24 @@
     height: 100%;
 }
 
+.input-name,
+.input-type,
+.input-code{
+    background-color: var(--surface-2);
+    color: var(--muted);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    width: 90%;
+    padding: 10px;
+    font-size: 1.3rem;
+    margin-left: 10px;
+}
+
 img {
     border-radius: 999px;
     width: 100px;
     height: 100px;
     border: 1px solid var(--border);
-    margin-top: 30%;
     object-fit: cover;
     padding: 5px;
 }
