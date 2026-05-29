@@ -50,13 +50,15 @@
 
 .btn-edit {
     display: flex;
+    flex-direction: column;
+    gap: 5px;
 }
 
 .btn {
     background-color: var(--surface-2);
     color: var(--muted);
     margin: auto;
-    padding: 15px 15px 12px 15px; /*saporra n centraliza o svg fds tb kkkk*/
+    padding: 10px 10px 6px 10px; /*saporra n centraliza o svg fds tb kkkk*/
     border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 1.5rem;
