@@ -36,11 +36,12 @@ O projeto foca em:
     │   └── token.js
     │
     ├── components/
-    │   └── complementItens.js
-    │
+    │   ├── complementItens.js
+    │   ├── itemClient.js
     ├── js/
     │   ├── clientes.js
     │   ├── itens.js
+    │   ├──manageClient.js
     │   └── script.js
     │
     ├── pages/
@@ -54,6 +55,7 @@ O projeto foca em:
     │   └── login.html
     │
     ├── styles/
+    │   ├── clients.css 
     │   ├── dashboard.css
     │   ├── login.css
     │   └── style.css
@@ -80,13 +82,14 @@ Responsável pelas requisições à API:
 
 ### components/
 
-- **complementItens.js** → renderiza dinamicamente novos elementos na interface para cada item  
+- **complementItens.js** → renderiza dinamicamente novos elementos na interface para cada item 
+- **itemClient** → constroi dinamicamente o item do client com nome, tipo e código
 
 ### js/
 
 Responsável pela lógica da aplicação:
 
-- Manipulação do DOM  
+- Manipulação do DOM
 - Integração com API  
 - Controle de fluxo da aplicação  
 
@@ -109,6 +112,7 @@ Arquivos de estilização:
 - **style.css** → estilos globais  
 - **login.css** → autenticação  
 - **dashboard.css** → páginas internas  
+- **clientes** → clientes e registro
 
 ### utils/
 
