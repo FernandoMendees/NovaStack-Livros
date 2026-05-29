@@ -31,6 +31,7 @@ export function buildClientItem(name, type, code) {
 
         const inputType = document.createElement("select");
         inputType.classList.add("input-type", "hidden");
+        inputType.required = true;
 
             const defaultOption = document.createElement("option");
             defaultOption.textContent = "Tipo do Cliente";
