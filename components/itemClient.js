@@ -1,9 +1,9 @@
-export function buildClientItem(name, type, code) {
+export function buildClientItem(id, name, typeClient, limit, accessCode, token) {
     let editMode = false;
-    
+
     const itemClient = document.createElement("li");
     itemClient.classList.add("client-item");
-    itemClient.dataset.type = type;
+    itemClient.dataset.type = typeClient;
 
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("image");
@@ -20,75 +20,96 @@ export function buildClientItem(name, type, code) {
     spanName.classList.add("name");
     spanName.textContent = name;
 
-        const inputName = document.createElement("input");
-        inputName.classList.add("input-name", "hidden");
-        inputName.type = 'text';
-        inputName.placeholder = 'Nome';
+    const inputName = document.createElement("input");
+    inputName.classList.add("input-name", "hidden");
+    inputName.type = 'text';
+    inputName.placeholder = 'Nome';
 
     //Tipo
     const spanType = document.createElement("span");
     spanType.classList.add("type");
-    spanType.textContent = type;
+    spanType.textContent = typeClient;
 
-        const inputType = document.createElement("select");
-        inputType.classList.add("input-type", "hidden");
-        inputType.required = true;
+    const inputType = document.createElement("select");
+    inputType.classList.add("input-type", "hidden");
+    inputType.required = true;
 
-            const defaultOption = document.createElement("option");
-            defaultOption.textContent = "Tipo do Cliente";
-            defaultOption.value = ""; defaultOption.disabled = true; defaultOption.selected = true;
-            const commomType = document.createElement("option"); 
-            const specialType = document.createElement("option");
-            commomType.value = 'common';
-            commomType.textContent = 'Comum';
-            specialType.value = 'special';
-            specialType.textContent = 'Especial';
+    const defaultOption = document.createElement("option");
+    defaultOption.textContent = "Tipo do Cliente";
+    defaultOption.value = ""; defaultOption.disabled = true; defaultOption.selected = true;
+    const commomType = document.createElement("option");
+    const specialType = document.createElement("option");
+    commomType.value = 'common';
+    commomType.textContent = 'Comum';
+    specialType.value = 'special';
+    specialType.textContent = 'Especial';
 
-            inputType.append(defaultOption, commomType, specialType);
-            
-    
+    inputType.append(defaultOption, commomType, specialType);
+
+
+    //limite
+    const spanLimit = document.createElement("span");
+    spanLimit.classList.add("limit");
+    spanLimit.textContent = limit;
+
     //Código
-    const spanCode = document.createElement("span");
-    spanCode.classList.add("acess-code");
-    spanCode.textContent = code;
-
-        const inputCode = document.createElement("input");
-        inputCode.classList.add("input-code", "hidden");
-        inputCode.type = 'text';
-        inputCode.placeholder = 'Código de acesso';
+    const inputCode = document.createElement("input");
+    inputCode.classList.add("input-code", "hidden");
+    inputCode.type = 'number';
+    inputCode.placeholder = 'Código de acesso'
 
     //Botão
     const buttonDiv = document.createElement("div");
     buttonDiv.classList.add("btn-edit");
 
-        const buttonEdit = document.createElement("button");
-            buttonEdit.classList.add("btn");
-            buttonEdit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>`;
-        
-        const buttonCancel = document.createElement("button");
-            buttonCancel.classList.add("btn", "hidden");
-            buttonCancel.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"fill="none"viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`
+    const buttonEdit = document.createElement("button");
+    buttonEdit.classList.add("btn");
+    buttonEdit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>`;
 
-        buttonEdit.addEventListener("click", () => {
+    const buttonCancel = document.createElement("button");
+    buttonCancel.classList.add("btn", "hidden");
+    buttonCancel.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg"fill="none"viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m9.75 9.75 4.5 4.5m0-4.5-4.5 4.5M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z" /></svg>`
+
+    buttonEdit.addEventListener("click", async () => {
         if (!editMode) {
             inputName.value = spanName.textContent;
             inputType.value = itemClient.dataset.type || "";
-            inputCode.value = spanCode.textContent;
+            inputCode.value = accessCode;
 
             buttonEdit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5" /></svg>`;
             buttonCancel.classList.remove("hidden");
 
             editMode = true;
         } else {
-            const value = inputType.value;
-            const text = inputType.options[inputType.selectedIndex].textContent;
+                const client = {
+                    id: id,
+                    name: inputName.value.trim(),
+                    typeClient: inputType.value,
+                    acessCode: inputCode.value.trim()
+                }
 
-            spanName.textContent = inputName.value;
-            spanType.textContent = text;
-            itemClient.dataset.type = value;
-            spanCode.textContent = inputCode.value;
+                try {
+                    const response = await fetch(`http://localhost:8080/client/${id}`, {
+                        method: "PUT",
+                        headers: {
+                            "Content-Type": "application/json",
+                            "Authorization": `Bearer ${token}`
+                        },
+                        body: JSON.stringify(client)
+                    })
 
-            // Requisição "value" aqui depois
+                    if (!response.ok) throw new Error(`Erro ao editar o cliente. Erro [${response.status}]. `)
+
+                    const value = inputType.value;
+                    const text = inputType.options[inputType.selectedIndex].textContent;
+
+                    spanName.textContent = inputName.value;
+                    spanType.textContent = text;
+                    itemClient.dataset.type = value;
+
+                } catch (erro) {
+                    throw erro;
+                }
 
             buttonEdit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>`
             buttonCancel.classList.add("hidden");
@@ -100,8 +121,8 @@ export function buildClientItem(name, type, code) {
         inputName.classList.toggle('hidden');
         spanType.classList.toggle('hidden');
         inputType.classList.toggle('hidden');
-        spanCode.classList.toggle('hidden');
-        inputCode.classList.toggle('hidden');
+        spanLimit.classList.toggle('hidden');
+        inputCode.classList.toggle('hidden')
     });
 
     buttonCancel.addEventListener("click", () => {
@@ -109,8 +130,8 @@ export function buildClientItem(name, type, code) {
         inputName.classList.add('hidden');
         spanType.classList.remove('hidden');
         inputType.classList.add('hidden');
-        spanCode.classList.remove('hidden');
-        inputCode.classList.add('hidden');
+        spanLimit.classList.remove('hidden');
+        inputCode.classList.add('hidden')
 
         buttonEdit.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m16.862 4.487 1.687-1.688a1.875 1.875 0 1 1 2.652 2.652L10.582 16.07a4.5 4.5 0 0 1-1.897 1.13L6 18l.8-2.685a4.5 4.5 0 0 1 1.13-1.897l8.932-8.931Zm0 0L19.5 7.125M18 14v4.75A2.25 2.25 0 0 1 15.75 21H5.25A2.25 2.25 0 0 1 3 18.75V8.25A2.25 2.25 0 0 1 5.25 6H10" /></svg>`
         buttonCancel.classList.add("hidden");
@@ -119,7 +140,7 @@ export function buildClientItem(name, type, code) {
     })
 
     imageDiv.append(img);
-    dataDiv.append(spanName, inputName, spanType, inputType, spanCode, inputCode);
+    dataDiv.append(spanName, inputName, spanType, inputType, spanLimit, inputCode);
     buttonDiv.append(buttonEdit, buttonCancel);
 
     itemClient.append(imageDiv, dataDiv, buttonDiv);

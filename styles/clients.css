@@ -46,7 +46,7 @@
 }
 
 .type,
-.acess-code {
+.limit {
     background-color: var(--muted);
     color: #101217;
     max-width: 120px;

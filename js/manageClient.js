@@ -6,10 +6,13 @@ import { getClients } from "../api/getClients.js";
 const formClient = document.getElementById("form-client");
 const listClient = document.getElementById("clients-list");
 const typeClient = document.getElementById("type-client");
+const token = localStorage.getItem("TOKEN");
 
 function renderClients(clients) {
     listClient.innerHTML = '';
 
+    console.log(token);
+    
     if (!clients || clients.length === 0) {
         listClient.innerHTML = '<p class="message">Nenhum cliente encontrado</p>';
         return;
@@ -22,9 +25,12 @@ function renderClients(clients) {
         else typeText = 'Especial';
 
         const item = buildClientItem(
+            client.id,
             client.name,
             typeText,
-            client.limit
+            client.limit,
+            100,
+            token
         );
 
         listClient.appendChild(item);
@@ -33,8 +39,6 @@ function renderClients(clients) {
 
 // carregar clientes ao abrir página
 async function loadClients() {
-    const token = localStorage.getItem("TOKEN");
-
     try {
         const clients = await getClients(token);
         renderClients(clients);
@@ -46,8 +50,6 @@ async function loadClients() {
 // submit do form
 formClient.addEventListener("submit", async (event) => {
     event.preventDefault();
-
-    const token = localStorage.getItem("TOKEN");
 
     const nameClient = document.getElementById("name-client").value.trim();
     const accessCode = document.getElementById("access-code").value.trim();
