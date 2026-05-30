@@ -23,13 +23,13 @@ function renderClients(clients) {
     clients.forEach(client => {
         if (client.typeClient === 'COMMON') typeText = 'Comum';
         else typeText = 'Especial';
-
+        
         const item = buildClientItem(
             client.id,
             client.name,
             typeText,
             client.limit,
-            100,
+            client.accessCode,
             token
         );
 
@@ -38,7 +38,7 @@ function renderClients(clients) {
 }
 
 // carregar clientes ao abrir página
-async function loadClients() {
+export async function loadClients() {
     try {
         const clients = await getClients(token);
         renderClients(clients);
