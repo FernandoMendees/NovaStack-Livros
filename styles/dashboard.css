@@ -310,7 +310,6 @@ label {
         display: flex;
         flex-direction: row;
         height: 100%;
-        padding: 30px;
     }
 
     .menu-item {
@@ -332,7 +331,7 @@ label {
     }
 
     #clients-list {
-        margin-bottom: 100PX;
+        margin-bottom: 100px;
     }
 
     .footer {

@@ -10,8 +10,6 @@ const token = localStorage.getItem("TOKEN");
 
 function renderClients(clients) {
     listClient.innerHTML = '';
-
-    console.log(token);
     
     if (!clients || clients.length === 0) {
         listClient.innerHTML = '<p class="message">Nenhum cliente encontrado</p>';
@@ -19,7 +17,6 @@ function renderClients(clients) {
     }
 
     let typeText;
-
     clients.forEach(client => {
         if (client.typeClient === 'COMMON') typeText = 'Comum';
         else typeText = 'Especial';
@@ -37,7 +34,6 @@ function renderClients(clients) {
     });
 }
 
-// carregar clientes ao abrir página
 export async function loadClients() {
     try {
         const clients = await getClients(token);
@@ -47,7 +43,6 @@ export async function loadClients() {
     }
 }
 
-// submit do form
 formClient.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -66,5 +61,9 @@ formClient.addEventListener("submit", async (event) => {
 });
 
 document.addEventListener("DOMContentLoaded", () => {
+    if (!token) {
+        window.location.replace("../login.html");
+        return;
+    }
     loadClients();
 });

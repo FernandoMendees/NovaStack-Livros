@@ -1,0 +1,80 @@
+:root {
+    --bg: #020814;
+    --surface: #11131d;
+    --surface-2: #1b1f29;
+
+    --primary: #4581e1;
+    --primary-hover: #5594f9;
+
+    --text: #eeeeef;
+    --muted: #9aa0a6;
+
+    --border: #6e6e6eb3;
+}
+
+.catalog {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.list-catalog {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    gap: 10px;
+}
+
+.item {
+    background-color: var(--surface);
+    display: flex;
+    flex-direction: column;
+    margin: auto;
+    width: 320px;
+    padding: 10px;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+}
+
+.item:hover {
+    border: 1px solid var(--primary);
+}
+
+.item img {
+    border-top: 1px solid var(--border);
+    border-radius: 16px 16px 0 0;
+}
+
+.content-item {
+    margin-top: 10px;
+}
+
+.content-item h3 {
+    font-size: 1.5rem;
+}
+
+.content-item span {
+    color: var(--muted);
+    font-size: 1.3rem;
+}
+
+.content-item p {
+    color: var(--muted);
+    font-size: 1.0rem;
+}
+
+
+@media (min-width: 768px) {
+    .list-catalog {
+        display: flex;
+        flex-direction: row;
+        flex-wrap: wrap;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .item {
+        width: 350px;
+        padding: 10px;
+        margin: 10px;
+    }
+}
