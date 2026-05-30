@@ -102,14 +102,6 @@ nav {
     text-align: center;
 }
 
-#clients-list {
-    background-color: var(--surface);
-    border-radius: 16px;
-    padding: 20px;
-    display: flex;
-    flex-direction: column;
-    margin: auto;
-}
 
 .client-card {
     border-radius: 12px;
@@ -261,6 +253,21 @@ select {
 
 label {
     margin-left: 10px;
+}
+
+.message {
+    text-align: center;
+    font-size: 1.3rem;
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    max-width: 400px;
+    margin: 10px auto;
+    padding: 10px;
+}
+
+.error {
+    background-color: rgb(235, 65, 65);
+    color: var(--text);
 }
 
 .footer {

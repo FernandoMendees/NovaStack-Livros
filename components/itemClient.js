@@ -3,6 +3,7 @@ export function buildClientItem(name, type, code) {
     
     const itemClient = document.createElement("li");
     itemClient.classList.add("client-item");
+    itemClient.dataset.type = type;
 
     const imageDiv = document.createElement("div");
     imageDiv.classList.add("image");

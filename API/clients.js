@@ -1,8 +1,8 @@
-export async function registerClient(name, typeClient, accessCode, token) {
+export async function registerClient(name, typeClient, acessCode, token) {
     const client = {
         name,
         typeClient,
-        accessCode
+        acessCode
     };
 
     try {

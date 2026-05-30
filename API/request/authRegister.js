@@ -1,7 +1,7 @@
 import { showError } from "../../utils/showError.js";
 import { resetButton } from "../../utils/resetButton.js";
-import { saveAuthToken } from "../API/token.js";
-import { registerUser } from "../API/auth.js";
+import { saveAuthToken } from "../token.js";
+import { registerUser } from "../auth.js";
 
 const message = document.getElementById("message");
 const formRegister = document.getElementById("form-register");
@@ -33,7 +33,7 @@ formRegister.addEventListener("submit", async (event) => {
         }
 
         saveAuthToken(data.token);
-        window.location.replace("../index.html")
+        window.location.replace("../pages/dashboard/catalogo.html")
 
     } catch (error) {
         showError(error.message);

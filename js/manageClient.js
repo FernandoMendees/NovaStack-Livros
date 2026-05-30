@@ -1,31 +1,68 @@
 import { buildClientItem } from "../components/itemClient.js";
 import { showError } from "../utils/showError.js";
 import { registerClient } from "../API/clients.js";
+import { getClients } from "../api/getClients.js";
 
 const formClient = document.getElementById("form-client");
 const listClient = document.getElementById("clients-list");
-const message = document.getElementById("message");
+const typeClient = document.getElementById("type-client");
 
+function renderClients(clients) {
+    listClient.innerHTML = '';
+
+    if (!clients || clients.length === 0) {
+        listClient.innerHTML = '<p class="message">Nenhum cliente encontrado</p>';
+        return;
+    }
+
+    let typeText;
+
+    clients.forEach(client => {
+        if (client.typeClient === 'COMMON') typeText = 'Comum';
+        else typeText = 'Especial';
+
+        const item = buildClientItem(
+            client.name,
+            typeText,
+            client.limit
+        );
+
+        listClient.appendChild(item);
+    });
+}
+
+// carregar clientes ao abrir página
+async function loadClients() {
+    const token = localStorage.getItem("TOKEN");
+
+    try {
+        const clients = await getClients(token);
+        renderClients(clients);
+    } catch (error) {
+        showError(error.message);
+    }
+}
+
+// submit do form
 formClient.addEventListener("submit", async (event) => {
     event.preventDefault();
 
     const token = localStorage.getItem("TOKEN");
 
-    let client;
-    const typeClient = document.getElementById("type-client");
     const nameClient = document.getElementById("name-client").value.trim();
     const accessCode = document.getElementById("access-code").value.trim();
 
     try {
         await registerClient(nameClient, typeClient.value, accessCode, token);
-        let typeText = typeClient.options[typeClient.selectedIndex].textContent;
 
-        client = buildClientItem(nameClient, typeText, accessCode);
+        await loadClients();
+
+        formClient.reset();
     } catch (error) {
         showError(error.message);
-        return;
     }
-    
-    listClient.append(client);
-    formClient.reset();
-})
+});
+
+document.addEventListener("DOMContentLoaded", () => {
+    loadClients();
+});
