@@ -1,5 +1,5 @@
 import { complementBook, complementMagazine, complementMedia, complementMonograph } from "../components/complementItens.js";
-import { registerBook, registerMagazine, registerMedia, registerMonograph } from "../API/itens.js";
+import { registerBook, registerMagazine, registerMedia, registerMonograph } from "../api/itens.js";
 
 const btnConfirm = document.getElementById("confirm-item");
 const complement = document.getElementById("form-complement");

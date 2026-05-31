@@ -26,7 +26,7 @@ O projeto foca em:
 
 ## Estrutura do projeto
 
-    API/
+    api/
     │
     ├── request/
     │   ├── authLogin.js

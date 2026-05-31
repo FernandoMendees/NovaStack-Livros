@@ -1,6 +1,6 @@
 import { buildClientItem } from "../components/itemClient.js";
 import { showError } from "../utils/showError.js";
-import { registerClient } from "../API/clients.js";
+import { registerClient } from "../api/clients.js";
 import { getClients } from "../api/getClients.js";
 
 const formClient = document.getElementById("form-client");
