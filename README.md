@@ -32,6 +32,7 @@ O projeto foca em:
     │    ├── request/
     │    │   ├── authLogin.js
     │    │   └── authRegister.js
+    │    │
     │    ├── auth.js
     │    ├── clients.js
     │    ├── getClients.js
