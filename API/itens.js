@@ -25,7 +25,7 @@ export async function registerBook(token, name, author, releaseDate, category) {
     
 }
 
-export async function registerMedia(token, name, author, releaseDate, format, duration) {
+export async function registerMedia(token, name, author, releaseDate, mediaFormat, durationTime) {
     const media = {
         name,
         author,
@@ -52,7 +52,7 @@ export async function registerMedia(token, name, author, releaseDate, format, du
     
 }
 
-export async function registerMagazine(token, name, author, releaseDate, edition) {
+export async function registerMagazine(token, name, author, releaseDate, editionNumber) {
     const magazine = {
         name,
         author,

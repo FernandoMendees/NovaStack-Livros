@@ -7,6 +7,7 @@ const formClient = document.getElementById("form-client");
 const listClient = document.getElementById("clients-list");
 const typeClient = document.getElementById("type-client");
 const token = localStorage.getItem("TOKEN");
+const message = document.getElementById("message");
 
 function renderClients(clients) {
     listClient.innerHTML = '';
@@ -39,7 +40,7 @@ export async function loadClients() {
         const clients = await getClients(token);
         renderClients(clients);
     } catch (error) {
-        showError(error.message);
+        showError(message, error.message);
     }
 }
 
@@ -56,7 +57,7 @@ formClient.addEventListener("submit", async (event) => {
 
         formClient.reset();
     } catch (error) {
-        showError(error.message);
+        showError(message, error.message);
     }
 });
 

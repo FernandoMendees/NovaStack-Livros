@@ -1,5 +1,5 @@
-export function showError(msg) {
-    message.classList.add("error");
-    message.classList.remove("hidden");
-    message.textContent = msg;
+export function showError(elemnt, msg) {
+    elemnt.classList.add("error");
+    elemnt.classList.remove("hidden");
+    elemnt.textContent = msg;
 }
