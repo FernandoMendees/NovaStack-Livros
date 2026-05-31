@@ -26,18 +26,23 @@ O projeto foca em:
 
 ## Estrutura do projeto
 
-    api/
+    Biblioteca/
     │
-    ├── request/
-    │   ├── authLogin.js
-    │   └── authRegister.js
-    ├── auth.js
-    ├── clients.js
-    ├── token.js
+    ├── api/
+    │    ├── request/
+    │    │   ├── authLogin.js
+    │    │   └── authRegister.js
+    │    ├── auth.js
+    │    ├── clients.js
+    │    ├── getClients.js
+    │    ├── getItens.js
+    │    ├── itens.js
+    │    └── token.js
     │
     ├── components/
     │   ├── complementItens.js
-    │   ├── itemClient.js
+    │   └── itemClient.js
+    │
     ├── js/
     │   ├── itens.js
     │   ├── manageClient.js
@@ -78,12 +83,16 @@ Responsável pelas requisições à API:
 - **authLogin.js** → login do usuário  
 - **authRegister.js** → cadastro de usuário  
 - **clients.js** → operações relacionadas a clientes  
+- **getClients.js** → pega todos os clientes registrados
+- **getItens.js** → pega todos os itens registrados
+- **itens.js** → registro de itens
 - **token.js** → gerenciamento de token  
 
 ### components/
 
 - **complementItens.js** → renderiza dinamicamente novos elementos na interface para cada item 
 - **itemClient** → constroi dinamicamente o item do client com nome, tipo e código
+- **itemClient** → renderiza o HTML para cada tipo de item
 
 ### js/
 
@@ -121,7 +130,7 @@ Funções reutilizáveis:
 
 - **menu.js** → controle de navegação/menu  
 - **resetButton.js** → controle de estado de botões  
-- **showError.js** → tratamento e exibição de erros  
+- **showError.js** →  exibição de erros  
 
 ## Autenticação
 
