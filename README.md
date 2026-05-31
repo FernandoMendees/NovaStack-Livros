@@ -29,19 +29,18 @@ O projeto foca em:
     API/
     │
     ├── request/
-    │   ├── auth.js
     │   ├── authLogin.js
-    │   ├── authRegister.js
-    │   ├── clients.js
-    │   └── token.js
+    │   └── authRegister.js
+    ├── auth.js
+    ├── clients.js
+    ├── token.js
     │
     ├── components/
     │   ├── complementItens.js
     │   ├── itemClient.js
     ├── js/
-    │   ├── clientes.js
     │   ├── itens.js
-    │   ├──manageClient.js
+    │   ├── manageClient.js
     │   └── script.js
     │
     ├── pages/
@@ -55,6 +54,7 @@ O projeto foca em:
     │   └── login.html
     │
     ├── styles/
+    │   ├── catalogo.css
     │   ├── clients.css 
     │   ├── dashboard.css
     │   ├── login.css
@@ -113,6 +113,7 @@ Arquivos de estilização:
 - **login.css** → autenticação  
 - **dashboard.css** → páginas internas  
 - **clientes** → clientes e registro
+- **catalogo** → itens no catalogo
 
 ### utils/
 
