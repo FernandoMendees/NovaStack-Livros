@@ -16,22 +16,17 @@ function renderItems(items) {
         let cardItem = document.createElement("div");
         cardItem.classList.add("item");
 
-        if (item.typeItem === "book") {
-            cardItem.innerHTML = itemBook(item.name, item.author, item.releaseDate);
-        }
+        switch (item.typeItem) {
+            case 'book': cardItem.innerHTML = itemBook(item.name, item.author, item.releaseDate);break;
+            
+            case 'media': cardItem.innerHTML = itemMedia(item.name, item.author, item.releaseDate);break;
 
-        else if (item.typeItem === "media") {
-            cardItem.innerHTML = itemMedia(item.name, item.author, item.releaseDate);
-        }
-
-        else if (item.typeItem === "magazine") {
-            cardItem.innerHTML = itemMagazine(item.name, item.author, item.releaseDate);
-        }
-
-        else if (item.typeItem === "monograph") {
-            cardItem.innerHTML = itemMonograph(item.name, item.author, item.releaseDate);
-        }
-
+            case 'magazine': cardItem.innerHTML = itemMagazine(item.name, item.author, item.releaseDate);break;
+            
+            case 'monograph': cardItem.innerHTML = itemMonograph(item.name, item.author, item.releaseDate);break;
+            
+            default: break;    
+        };
         listCatalog.append(cardItem);
     });
 }
