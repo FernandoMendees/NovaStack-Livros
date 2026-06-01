@@ -6,7 +6,7 @@ export function complementBook() {
         <option value="fiction">Ficção</option>
         <option value="romance">Romance</option>
         <option value="action">Ação</option>
-        <option value="academy">Academico</option>
+        <option value="academic">Academico</option>
     </select>
     `
 }

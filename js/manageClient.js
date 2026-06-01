@@ -63,7 +63,7 @@ formClient.addEventListener("submit", async (event) => {
 
 document.addEventListener("DOMContentLoaded", () => {
     if (!token) {
-        window.location.replace("../login.html");
+        window.location.replace("../pages/login.html");
         return;
     }
     loadClients();

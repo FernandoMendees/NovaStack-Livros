@@ -33,7 +33,7 @@ formLogin.addEventListener("submit", async (event) => {
         }
 
         saveAuthToken(data.token);
-        window.location.replace("../pages/dashboard/catalogo.html")
+        window.location.replace("../pages/dashboard/itens.html")
 
     } catch (error) {
         showError(error.message);

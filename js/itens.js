@@ -88,5 +88,7 @@ formItens.addEventListener("submit", async (event) => {
         console.log("Erro ao cadastrar " + error.message);
     } finally {
         button.disabled = false;
+        formItens.reset();
+        sectionForm.classList.add("hidden");
     }
 });
