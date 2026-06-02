@@ -1,94 +1,64 @@
-import { complementBook, complementMagazine, complementMedia, complementMonograph } from "../components/complementItens.js";
 import { registerBook, registerMagazine, registerMedia, registerMonograph } from "../api/itens.js";
 
-const btnConfirm = document.getElementById("confirm-item");
-const complement = document.getElementById("form-complement");
-const sectionForm = document.getElementById("section-form");
-
-btnConfirm.addEventListener("click", () => {
-    const selectValue = document.getElementById("select-item").value;
-
-    switch (selectValue) {
-        case 'book': {
-            complement.innerHTML = complementBook();
-            sectionForm.classList.remove("hidden");
-            return;
-        }
-
-        case 'media': {
-            complement.innerHTML = complementMedia();
-            sectionForm.classList.remove("hidden");
-            return;
-        }
-
-        case 'magazine': {
-            complement.innerHTML = complementMagazine();
-            sectionForm.classList.remove("hidden");
-            return;
-        }
-
-        case 'monograph': {
-            complement.innerHTML = complementMonograph();
-            sectionForm.classList.remove("hidden");
-            return;
-        }
-    };
-})
-
 const formItens = document.getElementById("form-itens");
+const sectionForm = document.getElementById("section-form");
+const message = document.getElementById("message");
 
-formItens.addEventListener("submit", async (event) => {
-    event.preventDefault();
-    const button = event.submitter; 
-    button.disabled = true;
+const getInputValue = (id) => {
+    const element = document.getElementById(id);
+    return element ? element.value : null;
+}
 
-    const token = localStorage.getItem("TOKEN");
+const registrationHandlers = {
+    'book': async ({ token, titleItem, authorItem, releaseDate }) => {
+        const category = getInputValue("category");
+        await registerBook(token, titleItem, authorItem, releaseDate, category);
+    },
 
-    const selectValue = document.getElementById("select-item").value;
-    const titleItem = document.getElementById("title").value.trim();
-    const authorItem = document.getElementById("author").value.trim();
-    const releaseDate = document.getElementById("date-publi").value.trim();
+    'media': async ({ token, titleItem, authorItem, releaseDate }) => {
+        const mediaFormat = getInputValue("mediaFormat");
+        const duration = Number(getInputValue("duration"));
+        await registerMedia(token, titleItem, authorItem, releaseDate, mediaFormat, duration);
+    },
 
-    if (!token) {
-        window.location.replace("../login.html");
+    'magazine': async ({ token, titleItem, authorItem, releaseDate }) => {
+        const editionNumber = Number(getInputValue("editionNumber"));
+        await registerMagazine(token, titleItem, authorItem, releaseDate, editionNumber);
+    },
+
+    'monograph': async ({ token, titleItem, authorItem, releaseDate }) => {
+        const institution = getInputValue("institution");
+        const course = getInputValue("course");
+        await registerMonograph(token, titleItem, authorItem, releaseDate, institution, course);
+    }
+};
+
+const handleRegistration = async (selectValue, commomData) => {
+    const action = registrationHandlers[selectValue];
+
+    if (!action) {
+        console.log(`Elemento inválido: ${selectValue}`);
         return;
     }
 
     try {
-        switch (selectValue) {
-            case 'book': {
-                const category = document.getElementById("category").value;
-                await registerBook(token, titleItem, authorItem, releaseDate, category);
-                return;
-            }
-
-            case 'media': {
-                const format = document.getElementById("mediaFormat").value;
-                const duration = document.getElementById("duration").value;
-                await registerMedia(token, titleItem, authorItem, releaseDate, format, Number(duration));
-                return;
-            }
-
-
-            case 'magazine': {
-                const edition = document.getElementById("editionNumber").value;
-                await registerMagazine(token, titleItem, authorItem, releaseDate, Number(edition));
-                return;
-            }
-
-
-            case 'monograph': {
-                const institution = document.getElementById("institution").value;
-                const course = document.getElementById("course").value;
-                await registerMonograph(token, titleItem, authorItem, releaseDate, institution, course);
-                return;
-            }
-        };
+        await action(commomData);
     } catch (error) {
-        console.log("Erro ao cadastrar " + error.message);
-    } finally {
-        button.disabled = false;
-        formItens.reset();
-        sectionForm.classList.add("hidden");
+        console.log("Erro ao registrar item" + error);
     }
-});
+}
+
+formItens.addEventListener("submit", async (event) => {
+    event.preventDefault();
+    const selectValue = getInputValue("select-item");
+    const token = localStorage.getItem("TOKEN");
+
+    const titleItem = getInputValue("title");
+    const authorItem = getInputValue("author");
+    const releaseDate = getInputValue("release-date");
+
+    const commonData = { token, titleItem, authorItem, releaseDate };
+
+    await handleRegistration(selectValue, commonData);
+    sectionForm.classList.add("hidden");
+})
