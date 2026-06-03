@@ -27,5 +27,3 @@ confirmButton.addEventListener("click", ()=> {
 
     sectionForm.classList.remove("hidden");
 })
-
-
