@@ -42,12 +42,16 @@ O projeto foca em:
     │
     ├── components/
     │   ├── complementItens.js
+    │   ├── createItem.js
     │   └── itemClient.js
     │
     ├── js/
+    │   ├── catalogo.js
+    │   ├── complement.js
     │   ├── itens.js
     │   ├── manageClient.js
-    │   └── script.js
+    │   ├── script.js
+    │   └── selectsLoan.js
     │
     ├── pages/
     │   ├── dashboard/
@@ -63,6 +67,7 @@ O projeto foca em:
     │   ├── catalogo.css
     │   ├── clients.css 
     │   ├── dashboard.css
+    │   ├── emprestimos.css
     │   ├── login.css
     │   └── style.css
     │
