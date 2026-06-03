@@ -98,7 +98,7 @@ Responsável pelas requisições à API:
 
 - **complementItens.js** → renderiza dinamicamente novos elementos na interface para cada item 
 - **itemClient** → constroi dinamicamente o item do client com nome, tipo e código
-- **itemClient** → renderiza o HTML para cada tipo de item
+- **createItem** → renderiza o HTML para cada tipo de item
 
 ### js/
 
@@ -124,6 +124,7 @@ Estrutura das páginas da aplicação:
 
 Arquivos de estilização:
 
+- **catalogo** → página de catálogo
 - **style.css** → estilos globais  
 - **login.css** → autenticação  
 - **dashboard.css** → páginas internas  
