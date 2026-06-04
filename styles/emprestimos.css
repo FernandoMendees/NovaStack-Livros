@@ -58,3 +58,15 @@ select {
     border: 1px solid var(--border);
     border-radius: 16px;
 }
+
+.section-loan {
+    width: 100%;
+    margin-bottom: 100px;
+}
+
+.loan-list {
+    display: flex;
+    flex-direction: column;
+    padding: 10px;
+    border: 1px solid var(--border);
+}

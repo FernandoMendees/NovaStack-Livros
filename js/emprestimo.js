@@ -1,5 +1,5 @@
 import { registerLoan } from "../api/registerLoan.js";
-import { showError } from "../utils/showError.js"
+import { showError, hiddenError, showMessage } from "../utils/showError.js"
 
 const formLoan = document.getElementById("loan");
 const message = document.getElementById("message")
@@ -22,12 +22,13 @@ formLoan.addEventListener("submit", async (event) => {
     try {
         await registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate);
 
-        message.classList.remove("hidden")
-        message.innerHTML = `<p>Emprestimo feito com sucesso.</p>`;
+        showMessage(message, 'Emprestimo registrado com sucesso!')
         formLoan.reset();
         
     } catch (error) {
-        message.classList.remove("hidden")
-        message.innerHTML = `<p>Algo deu errado...${error.message}</p>`
+        showError(message, error.message);
+
+    } finally {
+        hiddenError(message);
     }
 })
