@@ -10,7 +10,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
     divImage.classList.add("image");
 
     const img = document.createElement("img");
-    img.src = "../../assetes/iconLoan.png";
+    img.src = "../../assets/iconLoan.png";
     img.alt = "Icone de emprestimo";
 
     //Div de dados=========================
@@ -46,7 +46,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
     labelEndDate.textContent = "Entregue em: "
 
     const inputEndDate = document.createElement("input");
-    inputEndDate.type = Date;
+    inputEndDate.type = "date";
     inputEndDate.classList.add("hidden");
 
     //Div botões===========================
@@ -73,7 +73,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
 
             confirmMode = true;
         } else {
-            const returDateValue = inputEndDate.value
+            const returnDateValue = inputEndDate.value
 
             const loan = {
                 id: id,
@@ -93,6 +93,12 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                 if (!response.ok) throw new Error("Não foi possível completar o emprestimo.");
 
                 spanStatus.textContent = "Finalizado";
+                labelEndDate.classList.add("hidden");
+                inputEndDate.classList.add("hidden");
+                buttonCancel.classList.add("hidden");
+                
+                spanLoanDate.classList.remove("hidden");
+                spanDueDate.classList.remove("hidden");
 
             } catch (error) {
                 throw error;
@@ -100,11 +106,6 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
 
             confirmMode = false
         }
-        labelEndDate.classList.toggle("hidden");
-        inputEndDate.classList.toggle("hidden");
-        spanLoanDate.classList.toggle("hidden");
-        spanDueDate.classList.toggle("hidden");
-        buttonCancel.classList.toggle("hidden");
     });
 
     buttonCancel.addEventListener("click", () => {
@@ -148,7 +149,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
     divDates.append(spanLoanDate,spanDueDate);
     divButtons.append(buttonConfirm, buttonCancel, buttonDelete);
 
-    loanItem.append(divImage, divData, divButtons);
+    loanItem.append(divImage, divData, divDates, divButtons);
 
     return loanItem;
 }
