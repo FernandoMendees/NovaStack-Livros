@@ -70,3 +70,70 @@ select {
     padding: 10px;
     border: 1px solid var(--border);
 }
+
+.item-loan {
+    background-color: var(--surface);
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    padding: 10px;
+    border-radius: 16px;
+}
+
+.image{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.image img {
+    border-radius: 999px;
+    width: 100px;
+    height: 100px;
+    border: 1px solid var(--border);
+    object-fit: cover;
+    padding: 5px;
+}
+
+.data {
+    display: flex;
+    flex-direction: column;
+    padding-left: 10px;
+    width: 100%;
+}
+
+.client {
+    font-size: 1.3rem;
+    color: var(--muted);
+}
+
+.status {
+    background-color: rgb(62, 49, 145);
+    font-size: 1.0rem;
+    max-width: 110px;
+    border-radius: 5px;
+    padding: 0 5px;
+}
+
+.dates {
+    display: flex;
+    flex-direction: column;
+    color: var(--muted);
+}
+
+.buttons {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+.buttons button {
+    background-color: var(--surface-2);
+    color: var(--muted);
+    margin: auto;
+    padding: 10px 10px 6px 10px;
+    border: 1px solid var(--border);
+    border-radius: 999px;
+    font-size: 1.5rem;
+}
