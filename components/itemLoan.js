@@ -1,3 +1,5 @@
+import { loadLoans } from "../js/emprestimo.js";
+
 export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, token) {
     let confirmMode = false;
 
@@ -92,14 +94,13 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
 
                 if (!response.ok) throw new Error("Não foi possível completar o emprestimo.");
 
-                spanStatus.textContent = "Finalizado";
                 labelEndDate.classList.add("hidden");
                 inputEndDate.classList.add("hidden");
                 buttonCancel.classList.add("hidden");
                 
                 spanLoanDate.classList.remove("hidden");
                 spanDueDate.classList.remove("hidden");
-
+                loadLoans();
             } catch (error) {
                 throw error;
             }
@@ -140,16 +141,17 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
             throw error;
         }
 
+        loadLoans()
         confirmMode = false;
 
     });
 
     divImage.append(img);
-    divData.append(h2Title, spanClient, spanStatus);
-    divDates.append(spanLoanDate,spanDueDate);
+    divDates.append(spanLoanDate, spanDueDate, labelEndDate, inputEndDate);
+    divData.append(h2Title, spanClient, spanStatus, divDates);
     divButtons.append(buttonConfirm, buttonCancel, buttonDelete);
 
-    loanItem.append(divImage, divData, divDates, divButtons);
+    loanItem.append(divImage, divData, divButtons);
 
     return loanItem;
 }
