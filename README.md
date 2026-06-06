@@ -37,21 +37,24 @@ O projeto foca em:
     │    ├── clients.js
     │    ├── getClients.js
     │    ├── getItens.js
+    │    ├── getLoan.js
     │    ├── itens.js
     │    └── token.js
     │
     ├── components/
     │   ├── complementItens.js
     │   ├── createItem.js
-    │   └── itemClient.js
+    │   ├── itemClient.js
+    │   ├── itemLoan.js
+    │   └── selectsLoan.js
     │
     ├── js/
     │   ├── catalogo.js
     │   ├── complement.js
+    │   ├── emprestimo.js
     │   ├── itens.js
     │   ├── manageClient.js
-    │   ├── script.js
-    │   └── selectsLoan.js
+    │   └── script.js
     │
     ├── pages/
     │   ├── dashboard/
@@ -91,14 +94,17 @@ Responsável pelas requisições à API:
 - **clients.js** → operações relacionadas a clientes  
 - **getClients.js** → pega todos os clientes registrados
 - **getItens.js** → pega todos os itens registrados
+- **getLoan.js** → pega todos os emprestimos registrados
 - **itens.js** → registro de itens
 - **token.js** → gerenciamento de token  
 
 ### components/
 
 - **complementItens.js** → renderiza dinamicamente novos elementos na interface para cada item 
-- **itemClient** → constroi dinamicamente o item do client com nome, tipo e código
+- **itemClient** → constroi dinamicamente o item do cliente com nome, tipo e limite
 - **createItem** → renderiza o HTML para cada tipo de item
+- **itemLoan** → constroi dinamicamente o item do emprestimo com item, cliente, status, início e previsão
+- **selectsLoan** → constroi dinamicamente cada select para itens fora de emprestimo e clientes registrados
 
 ### js/
 
@@ -129,7 +135,7 @@ Arquivos de estilização:
 - **login.css** → autenticação  
 - **dashboard.css** → páginas internas  
 - **clientes** → clientes e registro
-- **catalogo** → itens no catalogo
+- **emprestimos** → emprestimos e registro
 
 ### utils/
 
@@ -137,7 +143,7 @@ Funções reutilizáveis:
 
 - **menu.js** → controle de navegação/menu  
 - **resetButton.js** → controle de estado de botões  
-- **showError.js** →  exibição de erros  
+- **showError.js** →  exibição de erros e mensagens
 
 ## Autenticação
 
