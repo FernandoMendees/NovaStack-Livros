@@ -82,9 +82,8 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                 returnDate: returnDateValue
             };
 
-            try {
                 const response = await fetch(`http://localhost:8080/loan/${id}`, {
-                    method: "PUT",
+                    method: "PATCH",
                     headers: {
                         "Content-Type": "application/json",
                         "Authorization": `Bearer ${token}`
@@ -92,21 +91,24 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                     body: JSON.stringify(loan)
                 })
 
-                if (!response.ok) throw new Error("Não foi possível completar o emprestimo.");
+                if (!response.ok) {
+                    if (!response.ok) {
+                        const errorData = await response.json();
+                        throw new Error(errorData.message);
+                    }
+                }
 
                 labelEndDate.classList.add("hidden");
                 inputEndDate.classList.add("hidden");
                 buttonCancel.classList.add("hidden");
-                
+
                 spanLoanDate.classList.remove("hidden");
                 spanDueDate.classList.remove("hidden");
                 loadLoans();
-            } catch (error) {
-                throw error;
-            }
 
-            confirmMode = false
-        }
+
+                confirmMode = false
+            }
     });
 
     buttonCancel.addEventListener("click", () => {
@@ -123,24 +125,21 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
         const loan = {
             id: id
         };
+        const response = await fetch(`http://localhost:8080/loan/${id}`, {
+            method: "DELETE",
+            headers: {
+                "Content-Type": "application/json",
+                "Authorization": `Bearer ${token}`
+            },
+            body: JSON.stringify(loan)
+        });
 
-        try {
-            const response = await fetch(`http://localhost:8080/loan/${id}`, {
-                method: "DELETE",
-                headers: {
-                    "Content-Type": "application/json",
-                    "Authorization": `Bearer ${token}`
-                },
-                body: JSON.stringify(loan)
-            });
-
-            if (!response.ok) throw new Error("Não foi possível excluir o cliente.");
-
-
-        } catch (error) {
-            throw error;
+        if (!response.ok) {
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
+            }
         }
-
         loadLoans()
         confirmMode = false;
 

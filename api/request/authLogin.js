@@ -18,7 +18,7 @@ formLogin.addEventListener("submit", async (event) => {
     const passwordLogin = document.getElementById("password-login").value.trim();
 
     if (!emailLogin || !passwordLogin) {
-        showError("Preencha todos os campos.");
+        showError(message, "Preencha todos os campos.");
         resetButton(submitBtn, "Login");
         return;
     }
@@ -27,8 +27,7 @@ formLogin.addEventListener("submit", async (event) => {
         const data = await loginUser(emailLogin, passwordLogin);
 
         if (!data.token) {
-            showError("Não foi possível fazer login.");
-            formLogin.reset();
+            showError(message, "Não foi possível fazer login.");
             return;
         }
 
@@ -36,13 +35,11 @@ formLogin.addEventListener("submit", async (event) => {
         window.location.replace("../pages/dashboard/itens.html")
 
     } catch (error) {
-        showError(error.message);
-        formLogin.reset();
-        
+        showError(message, "Senha ou Email incorreto.");
+        passwordLogin.value = "";
         return;
 
     } finally {
         resetButton(submitBtn, "Login");
     }
-    
 });

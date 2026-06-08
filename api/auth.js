@@ -4,26 +4,22 @@ export async function registerUser(name, email, password) {
         email,
         password
     };
+    const response = await fetch("http://localhost:8080/auth/register", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    });
 
-    try {
-        const response = await fetch("http://localhost:8080/auth/register", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+    };
 
-        if (!response.ok) throw new Error("Algo deu errado.. Tente novamente.");
+    const data = await response.json();
 
-        const data = await response.json();
-
-        return data;
-
-    } catch (error) {
-        throw error;
-    }
-
+    return data;
 };
 
 export async function loginUser(email, password) {
@@ -31,23 +27,19 @@ export async function loginUser(email, password) {
         email,
         password
     };
+    const response = await fetch("http://localhost:8080/auth/login", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json"
+        },
+        body: JSON.stringify(user)
+    });
 
-    try {
-        const response = await fetch("http://localhost:8080/auth/login", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json"
-            },
-            body: JSON.stringify(user)
-        });
+    if (!response.ok) {
+        const errorData = await response.json();
+        throw new Error(errorData.message);
+    };
+    const data = await response.json();
 
-        if (!response.ok) throw new Error("Algo deu errado.. Tente novamente.");
-
-        const data = await response.json();
-
-        return data;
-        
-    } catch (error){
-        throw error;
-    }
-}
+    return data;
+};

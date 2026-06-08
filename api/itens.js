@@ -6,23 +6,22 @@ export async function registerBook(token, name, author, releaseDate, category) {
         category
     };
 
-    try {
-        const response = await fetch("http://localhost:8080/book/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(book)
-        });
+    const response = await fetch("http://localhost:8080/book/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(book)
+    });
 
-        if (!response.ok) throw new Error("Não foi possível registrar o livro. " + response.status);
+    if (!response.ok) {
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+        }
+    }
 
-    } catch (error) {
-        throw error;
-
-    };
-    
 }
 
 export async function registerMedia(token, name, author, releaseDate, mediaFormat, durationTime) {
@@ -34,22 +33,21 @@ export async function registerMedia(token, name, author, releaseDate, mediaForma
         durationTime
     };
 
-    try {
-        const response = await fetch("http://localhost:8080/media/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(media)
-        });
+    const response = await fetch("http://localhost:8080/media/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(media)
+    });
 
-        if (!response.ok) throw new Error("Não foi possível registrar a mídia.");
-
-    } catch (error) {
-        throw error;    
-    };
-    
+    if (!response.ok) {
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+        }
+    }
 }
 
 export async function registerMagazine(token, name, author, releaseDate, editionNumber) {
@@ -60,22 +58,21 @@ export async function registerMagazine(token, name, author, releaseDate, edition
         editionNumber
     };
 
-    try {
-        const response = await fetch("http://localhost:8080/magazine/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(magazine)
-        });
+    const response = await fetch("http://localhost:8080/magazine/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(magazine)
+    });
 
-        if (!response.ok) throw new Error("Não foi possível registrar o periódico.");
-
-    } catch (error) {
-        throw error;    
-    };
-    
+    if (!response.ok) {
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+        }
+    }
 }
 
 export async function registerMonograph(token, name, author, releaseDate, institution, course) {
@@ -87,20 +84,20 @@ export async function registerMonograph(token, name, author, releaseDate, instit
         course
     };
 
-    try {
-        const response = await fetch("http://localhost:8080/monograph/create", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(monograph)
-        });
+    const response = await fetch("http://localhost:8080/monograph/create", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(monograph)
+    });
 
-        if (!response.ok) throw new Error("Não foi possível registrar a monografia.");
+    if (!response.ok) {
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+        }
+    }
 
-    } catch (error) {
-        throw error;    
-    };
-    
 }

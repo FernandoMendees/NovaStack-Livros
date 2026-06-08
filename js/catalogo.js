@@ -36,7 +36,7 @@ async function loadItem() {
         const item = await getItens(token);
         renderItems(item);
     } catch (erro){
-        listCatalog.innerHTML = '<p class"message"> Não foi possível carregar os itens. </p>';
+        listCatalog.innerHTML = `<p class"message">${erro.message}</p>`;
     }
 }
 

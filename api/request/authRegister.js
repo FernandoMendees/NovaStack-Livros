@@ -19,7 +19,7 @@ formRegister.addEventListener("submit", async (event) => {
     const passwordUser = document.getElementById("password-register").value.trim();
 
     if (!nameUser || !emailUser || !passwordUser) {
-        showError("Preencha todos os campos.");
+        showError(message, "Preencha todos os campos.");
         resetButton(submitBtn, "Cadastrar")
         return;
     }
@@ -28,7 +28,6 @@ formRegister.addEventListener("submit", async (event) => {
 
         if (!data.token) {
             showError("Não foi possivel fazer o cadastro.")
-            formRegister.reset();
             return;
         }
 
@@ -36,12 +35,10 @@ formRegister.addEventListener("submit", async (event) => {
         window.location.replace("../pages/dashboard/itens.html")
 
     } catch (error) {
-        showError(error.message);
-        formRegister.reset();
+        showError(message, "Não foi possivel cadastrar. Verifique o email e senha");
         return;
 
     } finally {
         resetButton(submitBtn, "Cadastrar")
     }
-    
 });

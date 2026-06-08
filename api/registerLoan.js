@@ -6,20 +6,19 @@ export async function registerLoan(token, libraryItemId, clientId, loanStatus, l
         loanDate,
         dueDate
     };
+    const response = await fetch("http://localhost:8080/loan", {
+        method: "POST",
+        headers: {
+            "Content-Type": "application/json",
+            "Authorization": `Bearer ${token}`
+        },
+        body: JSON.stringify(loan)
+    });
 
-    try {
-        const response = await fetch("http://localhost:8080/loan", {
-            method: "POST",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(loan)
-        });
-
-        if (!response.ok) throw new Error(`Erro ao cadastrar emprestimo. Status [${response.status}]`);
-
-    } catch (error) {
-        throw error;
+    if (!response.ok) {
+        if (!response.ok) {
+            const errorData = await response.json();
+            throw new Error(errorData.message);
+        }
     }
 }

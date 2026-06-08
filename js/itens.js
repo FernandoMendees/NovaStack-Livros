@@ -1,4 +1,5 @@
 import { registerBook, registerMagazine, registerMedia, registerMonograph } from "../api/itens.js";
+import { showError } from "../utils/showError.js";
 
 const formItens = document.getElementById("form-itens");
 const sectionForm = document.getElementById("section-form");
@@ -37,14 +38,14 @@ const handleRegistration = async (selectValue, commomData) => {
     const action = registrationHandlers[selectValue];
 
     if (!action) {
-        console.log(`Elemento inválido: ${selectValue}`);
+        showError(message, `Erro ao cadastrar item ${selectValue.value}`);
         return;
     }
 
     try {
         await action(commomData);
     } catch (error) {
-        console.log("Erro ao registrar item" + error);
+        showError(message, error.message);
     }
 }
 
