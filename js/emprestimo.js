@@ -17,7 +17,7 @@ function renderLoan(loans) {
     loanList.innerHTML = '';
 
     if (!loans || loans.length === 0) {
-        showError(message, "Nenhum emprestimo encontrado.")
+        showMessage(message, "Nenhum emprestimo encontrado.")
         return;
     }
 

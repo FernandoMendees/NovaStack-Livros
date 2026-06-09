@@ -68,7 +68,6 @@ select {
     display: flex;
     flex-direction: column;
     padding: 10px;
-    border: 1px solid var(--border);
 }
 
 .item-loan {
@@ -81,7 +80,7 @@ select {
     border-radius: 16px;
 }
 
-.image{
+.image {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -127,6 +126,7 @@ select {
     display: flex;
     flex-direction: column;
     gap: 5px;
+    margin-left: 10px;
 }
 
 .buttons button {
