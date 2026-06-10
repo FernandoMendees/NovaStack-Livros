@@ -4,9 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>biblioteca-novaStack</title>
+    <title>Biblioteca NovaStack</title>
     <link rel="stylesheet" href="../../styles/dashboard.css">
-    <link rel="stylesheet" href="../../styles/catalogo.css">
 </head>
 
 <body>
@@ -16,39 +15,37 @@
 
             <nav class="navbar">
                 <a href="itens.html" class="menu-item">Registrar</a>
-                <button class="menu-item">
-                    <span>Catálogo </span>
+                <a href="catalogo.html" class="menu-item">Catálogo</a>
+                <a href="emprestimos.html" class="menu-item">Emprestimos</a>
+                <a href="clientes.html" class="menu-item">Clientes</a>
+                <button class="menu-ite">
+                    <span>Reservas</span>
                 </button>
-                <a href="./emprestimos.html" class="menu-item">Emprestimos</a>
-                <a href="./clientes.html" class="menu-item">Clientes</a>
-                <a href="reservas.html" class="menu-item">Reservas</a>
             </nav>
-
             <p>
                 Gerencie livros, empréstimos e clientes de forma simples,
                 rápida e organizada com o sistema da NovaStack.
             </p>
-
         </aside>
 
+        <section class="container">
+            <div class="message hidden" id="message">
+            </div>
+        </section>
+
         <main class="main-container">
-            <section class="description">
+            <div class="description">
                 <h1>Seja bem-vindo!</h1>
-                <h2>Catálogo</h2>
-                <p>Veja todos o catálogo da biblioteca</p>
-            </section>
+                <h2>Reservas</h2>
+                <p>Veja todas as reservas da biblioteca</p>
+            </div>
             <hr>
 
-            <section class="catalog">
-                <div class="list-catalog" id="list-catalog">
-                </div>
-
-            </section>
         </main>
     </section>
 
     <footer class="footer">
-        <section class="content">
+        <div class="content">
             <span>
                 Sistema de Gerenciamento de Bibliotecas voltado à administração de livros, controle de empréstimos e
                 gestão
@@ -57,10 +54,8 @@
                 © 2026 <a href="https://novastackweb.github.io/NovaStackLandingPage/">Novastack</a>. Todos os direitos
                 reservados.
             </span>
-        </section>
+        </div>
     </footer>
-
 </body>
-<script type="module" src="../../js/catalogo.js"></script>
 
 </html>
