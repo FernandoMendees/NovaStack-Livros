@@ -4,6 +4,7 @@ import { buildLoanItem } from "../components/itemLoan.js";
 import { showError, hiddenError, showMessage } from "../utils/showError.js"
 
 const formLoan = document.getElementById("loan");
+const selectStatus = document.getElementById("status");
 const message = document.getElementById("message");
 const loanList = document.getElementById("loan-list");
 const token = localStorage.getItem("TOKEN")
@@ -52,6 +53,21 @@ export async function loadLoans() {
     }
 }
 
+selectStatus.addEventListener("change", () => {
+    const dateFinished = document.getElementById("dateFinished");
+    const dateProgress = document.getElementById("dateProgress");
+
+    if (selectStatus.value === "IN_PROGRESS"){
+        dateFinished.classList.add("hidden");
+        dateProgress.classList.remove("hidden");
+        return;
+
+    } else {
+        dateProgress.classList.add("hidden");
+        dateFinished.classList.remove("hidden");
+    }
+})
+
 formLoan.addEventListener("submit", async (event) => {
     event.preventDefault();
 
@@ -60,9 +76,10 @@ formLoan.addEventListener("submit", async (event) => {
     const loanStatus = getInputValue("status");
     const loanDate = getInputValue("startDate");
     const dueDate = getInputValue("endDate");
+    const returnDate = getInputValue("returnDate");
 
     try {
-        await registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate);
+        await registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate, returnDate);
         await loadLoans();
 
         showMessage(message, 'Emprestimo registrado com sucesso!')

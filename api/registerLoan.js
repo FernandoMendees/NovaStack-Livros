@@ -4,7 +4,8 @@ export async function registerLoan(token, libraryItemId, clientId, loanStatus, l
         clientId,
         loanStatus,
         loanDate,
-        dueDate
+        dueDate,
+        returnDate
     };
     const response = await fetch("http://localhost:8080/loan", {
         method: "POST",
