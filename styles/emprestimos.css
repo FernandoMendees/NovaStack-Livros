@@ -25,12 +25,15 @@
     font-size: 1.5rem;
 }
 
-label {
-    margin-top: 15px;
+.form-loan label {
+    padding-top: 10px;
+    padding-left: 10px;
 }
 
-input,
-select {
+.form-loan input,
+.form-loan select,
+.item-loan input,
+.item-loan select{
     background-color: var(--surface-2);
     color: var(--text);
     font-size: 1.2rem;
@@ -137,4 +140,13 @@ select {
     border: 1px solid var(--border);
     border-radius: 999px;
     font-size: 1.5rem;
+}
+
+.input-status {
+    align-items: center;
+    gap: 8px;
+}
+
+.input-status input[type="radio"] {
+  margin: 0; 
 }

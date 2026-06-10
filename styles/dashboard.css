@@ -251,10 +251,6 @@ select {
 
 }
 
-label {
-    margin-left: 10px;
-}
-
 .message {
     text-align: center;
     font-size: 1.3rem;
@@ -328,10 +324,6 @@ label {
 
     .client-card {
         min-width: 200px;
-    }
-
-    #clients-list {
-        margin-bottom: 100px;
     }
 
     .footer {
