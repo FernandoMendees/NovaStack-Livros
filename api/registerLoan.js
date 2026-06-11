@@ -1,4 +1,4 @@
-export async function registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate) {
+export async function registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate, returnDate) {
     const loan = {
         libraryItemId,
         clientId,

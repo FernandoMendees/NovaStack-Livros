@@ -53,15 +53,10 @@
 
                     <label for="status">Status</label>
                     <select id="status" required>
-                        <option value="" selected disabled >Selecione o Status</option>
+                        <option value="" selected disabled>Selecione o Status</option>
                         <option value="IN_PROGRESS">Em progresso</option>
                         <option value="FINISHED">Finalizado</option>
                     </select>
-
-                    <div class="dates-input hidden" id="dateFinished">
-                        <label for="returnDate">Data de retorno</label>
-                        <input type="date" id="returnDate">
-                    </div>
 
                     <div class="dates-input hidden" id="dateProgress">
                         <label for="startDate">Data de início</label>
@@ -69,6 +64,11 @@
 
                         <label for="endDate">Data para entrega</label>
                         <input type="date" id="endDate" placeholder="Data de entrega">
+
+                        <div class="dates-input hidden" id="dateFinished">
+                            <label for="returnDate">Data de retorno</label>
+                            <input type="date" id="returnDate">
+                        </div>
                     </div>
 
                     <div class="button-submit">
