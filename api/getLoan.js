@@ -1,5 +1,5 @@
 export async function getLoan(token) {
-    const response = await fetch("http://localhost:8080/loan", {
+    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=false", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
