@@ -18,8 +18,8 @@ export async function getReservation(token) { //Reservas já cadastradas
 };
 
 
-export async function selectReservation(token) {
-    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=false", {
+export async function selectReservation(token) { // Seleção para criação de novas reservas
+    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=true", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
