@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biblioteca NovaStack</title>
     <link rel="stylesheet" href="../../styles/dashboard.css">
+    <link rel="stylesheet" href="../../styles/reservas.css">
 </head>
 
 <body>
@@ -48,7 +49,7 @@
                         <option value="" selected disabled>Selecione um item para reserva</option>
                     </select>
 
-                    <label for="clientId">Client</label>
+                    <label for="clientId">Cliente</label>
                     <select id="clientId" required>
                         <option value="" selected disabled>Selecione o cliente</option>
                     </select>
@@ -56,11 +57,24 @@
                     <label for="reservationDate">Data da reserva</label>
                     <input type="date" id="reservationDate">
 
-                    <label for="ReservationStatus">Status da reserva</label>
-                    <input type="date" id="ReservationStatus">
+                    <label for="reservationStatus">Status da reserva</label>
+                    <select id="reservationStatus">
+                        <option value="">Selecione o status</option>
+                        <option value="PENDING">Pendente</option>
+                        <option value="CANCELLED">Cancelado</option>
+                        <option value="COMPLETED">Concluída</option>
+                    </select>
 
+                    <div class="button-submit">
+                        <button type="submit">Registrar</button>
+                    </div>
                 </form>
 
+                <section class="reservation-section">
+                    <ul id="list-reservation">
+
+                    </ul>
+                </section>
             </section>
         </main>
     </section>
