@@ -1,7 +1,7 @@
 import { registerLoan } from "../api/registerLoan.js";
 import { getLoan } from "../api/getLoan.js";
 import { buildLoanItem } from "../components/itemLoan.js";
-import { showError, hiddenError, showMessage } from "../utils/showError.js"
+import { showError, hiddenError, showMessage } from "../utils/showError.js";
 
 const formLoan = document.getElementById("loan");
 const selectStatus = document.getElementById("status");
