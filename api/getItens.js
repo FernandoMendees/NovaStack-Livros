@@ -20,7 +20,7 @@ export async function getItens(token) {
 }
 
 export async function itemsNotBorrowed(token) {
-    const response = await fetch("http://localhost:8080/libraryItems/notBorrowed", {
+    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=false", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
