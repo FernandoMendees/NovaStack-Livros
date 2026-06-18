@@ -1,7 +1,7 @@
 import { loadLoans } from "../js/emprestimo.js";
 
 export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, token) {
-    let confirmMode = false;
+    let editMode = false;
 
     const loanItem = document.createElement("li");
     loanItem.classList.add("item-loan");
@@ -66,14 +66,14 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
     buttonDelete.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round"d="m20.25 7.5-.625 10.632a2.25 2.25 0 0 1-2.247 2.118H6.622a2.25 2.25 0 0 1-2.247-2.118L3.75 7.5m6 4.125 2.25 2.25m0 0 2.25 2.25M12 13.875l2.25-2.25M12 13.875l-2.25 2.25M3.375 7.5h17.25c.621 0 1.125-.504 1.125-1.125v-1.5c0-.621-.504-1.125-1.125-1.125H3.375c-.621 0-1.125.504-1.125 1.125v1.5c0 .621.504 1.125 1.125 1.125Z"/></svg>`
 
     buttonConfirm.addEventListener("click", async () => {
-        if (!confirmMode) {
+        if (!editMode) {
             labelEndDate.classList.remove("hidden");
             inputEndDate.classList.remove("hidden");
             spanLoanDate.classList.add("hidden");
             spanDueDate.classList.add("hidden");
             buttonCancel.classList.remove("hidden");
 
-            confirmMode = true;
+            editMode = true;
         } else {
             const returnDateValue = inputEndDate.value
 
@@ -107,7 +107,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                 loadLoans();
 
 
-                confirmMode = false
+                editMode = false
             }
     });
 
@@ -118,7 +118,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
         inputEndDate.classList.add("hidden");
         buttonCancel.classList.add("hidden");
 
-        confirmMode = false;
+        editMode = false;
     })
 
     buttonDelete.addEventListener("click", async () => {
@@ -141,7 +141,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
             }
         }
         loadLoans()
-        confirmMode = false;
+        editMode = false;
 
     });
 
