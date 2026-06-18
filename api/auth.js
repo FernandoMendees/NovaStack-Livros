@@ -4,7 +4,7 @@ export async function registerUser(name, email, password) {
         email,
         password
     };
-    const response = await fetch("http://localhost:8080/auth/register", {
+    const response = await fetch("https://library-api-1-1.onrender.com/auth/register", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"
@@ -27,7 +27,7 @@ export async function loginUser(email, password) {
         email,
         password
     };
-    const response = await fetch("http://localhost:8080/auth/login", {
+    const response = await fetch("https://library-api-1-1.onrender.com/auth/login", {
         method: "POST",
         headers: {
             "Content-Type": "application/json"

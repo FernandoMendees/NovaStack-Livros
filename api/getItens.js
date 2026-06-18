@@ -1,6 +1,6 @@
 export async function getItens(token) {
 
-    const response = await fetch("http://localhost:8080/libraryItems/all", {
+    const response = await fetch("https://library-api-1-1.onrender.com/libraryItems/all", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function getItens(token) {
 }
 
 export async function itemsNotBorrowed(token) {
-    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=false", {
+    const response = await fetch("https://library-api-1-1.onrender.com/select?isBorrowed=false", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

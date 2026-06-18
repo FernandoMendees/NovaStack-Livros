@@ -6,7 +6,7 @@ export async function registerBook(token, name, author, releaseDate, category) {
         category
     };
 
-    const response = await fetch("http://localhost:8080/book/create", {
+    const response = await fetch("https://library-api-1-1.onrender.com/book/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -33,7 +33,7 @@ export async function registerMedia(token, name, author, releaseDate, mediaForma
         durationTime
     };
 
-    const response = await fetch("http://localhost:8080/media/create", {
+    const response = await fetch("https://library-api-1-1.onrender.com/media/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -58,7 +58,7 @@ export async function registerMagazine(token, name, author, releaseDate, edition
         editionNumber
     };
 
-    const response = await fetch("http://localhost:8080/magazine/create", {
+    const response = await fetch("https://library-api-1-1.onrender.com/magazine/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",
@@ -84,7 +84,7 @@ export async function registerMonograph(token, name, author, releaseDate, instit
         course
     };
 
-    const response = await fetch("http://localhost:8080/monograph/create", {
+    const response = await fetch("https://library-api-1-1.onrender.com/monograph/create", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

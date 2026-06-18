@@ -6,7 +6,7 @@ export async function registerReservation(libraryItemId, clientId, reservationDa
             reservationStatus
     };
 
-    const response = await fetch("http://localhost:8080/reservation", {
+    const response = await fetch("https://library-api-1-1.onrender.com/reservation", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

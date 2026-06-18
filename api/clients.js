@@ -4,7 +4,7 @@ export async function registerClient(name, typeClient, accessCode, token) {
         typeClient,
         accessCode
     };
-    const response = await fetch("http://localhost:8080/client", {
+    const response = await fetch("https://library-api-1-1.onrender.com/client", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

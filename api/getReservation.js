@@ -1,5 +1,5 @@
 export async function getReservation(token) { //Reservas já cadastradas
-    const response = await fetch("http://localhost:8080/reservation", {
+    const response = await fetch("https://library-api-1-1.onrender.com/reservation", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -19,7 +19,7 @@ export async function getReservation(token) { //Reservas já cadastradas
 
 
 export async function selectReservation(token) { // Seleção para criação de novas reservas
-    const response = await fetch("http://localhost:8080/libraryItems/select?isBorrowed=true", {
+    const response = await fetch("https://library-api-1-1.onrender.com/libraryItems/select?isBorrowed=true", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

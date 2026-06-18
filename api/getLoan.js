@@ -1,5 +1,5 @@
 export async function getLoan(token) {
-    const response = await fetch("http://localhost:8080/loan", {
+    const response = await fetch("https://library-api-1-1.onrender.com/loan", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",

@@ -7,7 +7,7 @@ export async function registerLoan(token, libraryItemId, clientId, loanStatus, l
         dueDate,
         returnDate
     };
-    const response = await fetch("http://localhost:8080/loan", {
+    const response = await fetch("https://library-api-1-1.onrender.com/loan", {
         method: "POST",
         headers: {
             "Content-Type": "application/json",

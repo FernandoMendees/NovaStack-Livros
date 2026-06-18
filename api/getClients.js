@@ -1,5 +1,5 @@
 export async function getClients(token) {
-    const response = await fetch("http://localhost:8080/client", {
+    const response = await fetch("https://library-api-1-1.onrender.com/client", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
@@ -20,7 +20,7 @@ export async function getClients(token) {
 
 export async function clientNotBanned(token) {
 
-    const response = await fetch("http://localhost:8080/client/notBanned", {
+    const response = await fetch("https://library-api-1-1.onrender.com/client/notBanned", {
         method: "GET",
         headers: {
             "Content-Type": "application/json",
