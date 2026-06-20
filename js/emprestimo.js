@@ -79,12 +79,10 @@ formLoan.addEventListener("submit", async (event) => {
     const returnDate = getInputValue("returnDate");
 
     try {
-        console.log(token, libraryItemId, clientId, loanStatus, loanDate, dueDate, returnDate);
-        
         await registerLoan(token, libraryItemId, clientId, loanStatus, loanDate, dueDate, returnDate);
         await loadLoans();
 
-        showMessage(message, 'Emprestimo registrado com sucesso!')
+        showMessage(message, 'Emprestimo registrado com sucesso!');
         formLoan.reset();
 
     } catch (error) {
