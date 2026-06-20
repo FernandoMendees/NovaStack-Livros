@@ -35,8 +35,8 @@ function renderReservation(reservation) {
 
         const itemReservation = buildReservationItem(
             reserve.id,
-            reserve.libraryItemName,
-            reserve.clientName,
+            reserve.libraryItem,
+            reserve.client,
             statusText,
             reserve.reservationDate,
             token
