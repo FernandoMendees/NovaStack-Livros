@@ -1,6 +1,6 @@
 import { loadReservation } from "../js/reservation.js";
 
-export function buildReservationItem(id, libraryItem, client, reservationStatus, reservationDate) {
+export function buildReservationItem(id, libraryItem, client, reservationStatus, reservationDate, token) {
     let completeReservation = false;
 
     const reservationItem = document.createElement("li");
