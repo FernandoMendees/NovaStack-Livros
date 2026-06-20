@@ -7,34 +7,31 @@ const formReservation = document.getElementById("form-reservation");
 const selectStatus = document.getElementById("reservationStatus");
 const message = document.getElementById("message");
 const listReservation = document.getElementById("list-reservation");
-const token = localStorage.getItem("TOKEN")
+const token = localStorage.getItem("TOKEN");
 
 const getInputValue = (id) => {
     const element = document.getElementById(id);
     return element ? element.value : null;
-}
+};
 
 function renderReservation(reservation) {
     listReservation.innerHTML = '';
 
     if (!reservation || reservation.length === 0) {
-        showMessage(message, "Nenhuma reserva encontrada.")
+        showMessage(message, "Nenhuma reserva encontrada.");
         return;
     }
 
     reservation.forEach(reserve => {
-        let statusText = "";
+        let statusText;
 
         if (reserve.reservationStatus === "PENDING") {
             statusText = "Pendente";
-
         } else if (reserve.reservationStatus === "CANCELLED") {
             statusText = "Cancelado";
-
         } else {
             statusText = "Completado";
         }
-
 
         const itemReservation = buildReservationItem(
             reserve.id,
@@ -51,8 +48,13 @@ function renderReservation(reservation) {
 
 export async function loadReservation() {
     try {
-        const reservation = await getReservation(token);
-        renderReservation(reservation);
+        const response = await getReservation(token);
+        
+        const disponiveis = response.isAvailable || [];
+        const indisponiveis = response.notAvailable || [];
+        const todasAsReservas = [...disponiveis, ...indisponiveis];
+
+        renderReservation(todasAsReservas);
 
     } catch (error) {
         showError(message, error.message);
@@ -72,10 +74,8 @@ formReservation.addEventListener("submit", async (event) => {
         await loadReservation();
 
         showMessage(message, 'Reserva registrada com sucesso!');
-        
-    } catch (error) {
-        showError(message, error.message);
-
+    } catch (e) {
+        showError(message, e.message);
     } finally {
         hiddenError(message);
     }
