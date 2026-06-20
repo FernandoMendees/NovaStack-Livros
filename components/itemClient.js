@@ -102,7 +102,7 @@ export function buildClientItem(id, name, typeClient, limit, accessCode, token) 
                 accessCode: inputCode.value.trim()
             }
 
-            const response = await fetch(`http://localhost:8080/client/${id}`, {
+            const response = await fetch(`https://library-api-1-1.onrender.com/client/${id}`, {
                 method: "PUT",
                 headers: {
                     "Content-Type": "application/json",
@@ -158,7 +158,7 @@ export function buildClientItem(id, name, typeClient, limit, accessCode, token) 
             id: id
         }
 
-        const response = await fetch(`http://localhost:8080/client/${id}`, {
+        const response = await fetch(`https://library-api-1-1.onrender.com/client/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",

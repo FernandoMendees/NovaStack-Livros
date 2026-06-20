@@ -82,7 +82,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                 returnDate: returnDateValue
             };
 
-            const response = await fetch(`http://localhost:8080/loan/${id}`, {
+            const response = await fetch(`https://library-api-1-1.onrender.com/loan/${id}`, {
                 method: "PATCH",
                 headers: {
                     "Content-Type": "application/json",
@@ -125,7 +125,7 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
         const loan = {
             id: id
         };
-        const response = await fetch(`http://localhost:8080/loan/${id}`, {
+        const response = await fetch(`https://library-api-1-1.onrender.com/loan/${id}`, {
             method: "DELETE",
             headers: {
                 "Content-Type": "application/json",
