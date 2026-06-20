@@ -23,8 +23,7 @@ function renderReservation(reservation) {
     }
 
     reservation.forEach(reserve => {
-        console.log(reserve);
-        
+        let statusText = "";
 
         if (reserve.reservationStatus === "PENDING") {
             statusText = "Pendente";
@@ -73,7 +72,8 @@ formReservation.addEventListener("submit", async (event) => {
         await loadReservation();
 
         showMessage(message, 'Reserva registrada com sucesso!');
-    } catch (e) {
+        
+    } catch (error) {
         showError(message, error.message);
 
     } finally {
