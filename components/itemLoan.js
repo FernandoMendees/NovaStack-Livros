@@ -82,33 +82,33 @@ export function buildLoanItem(id, titleItem, client, status, loanDate, dueDate, 
                 returnDate: returnDateValue
             };
 
-                const response = await fetch(`http://localhost:8080/loan/${id}`, {
-                    method: "PATCH",
-                    headers: {
-                        "Content-Type": "application/json",
-                        "Authorization": `Bearer ${token}`
-                    },
-                    body: JSON.stringify(loan)
-                })
-
-                if (!response.ok) {
-                    if (!response.ok) {
-                        const errorData = await response.json();
-                        throw new Error(errorData.message);
-                    }
-                }
-
-                labelEndDate.classList.add("hidden");
-                inputEndDate.classList.add("hidden");
-                buttonCancel.classList.add("hidden");
-
-                spanLoanDate.classList.remove("hidden");
-                spanDueDate.classList.remove("hidden");
-                loadLoans();
+            const response = await fetch(`http://localhost:8080/loan/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(loan)
+            })
 
 
-                editMode = false
+            if (!response.ok) {
+                const errorData = await response.json();
+                throw new Error(errorData.message);
             }
+
+
+            labelEndDate.classList.add("hidden");
+            inputEndDate.classList.add("hidden");
+            buttonCancel.classList.add("hidden");
+
+            spanLoanDate.classList.remove("hidden");
+            spanDueDate.classList.remove("hidden");
+            loadLoans();
+
+
+            editMode = false
+        }
     });
 
     buttonCancel.addEventListener("click", () => {
