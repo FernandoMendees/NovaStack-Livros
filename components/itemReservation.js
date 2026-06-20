@@ -1,3 +1,5 @@
+import { loadReservation } from "../js/reservation.js";
+
 export function buildReservationItem(id, libraryItem, client, reservationStatus, reservationDate) {
     let completeReservation = false;
 
@@ -54,6 +56,7 @@ export function buildReservationItem(id, libraryItem, client, reservationStatus,
                 const errorData = await response.json();
                 throw new Error(errorData.message);
             }  
+        loadReservation();
     })
 
     divImage.append(img);
