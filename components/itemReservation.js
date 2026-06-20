@@ -10,7 +10,7 @@ export function buildReservationItem(id, libraryItem, client, reservationStatus,
     divImage.classList.add("image");
 
     const img = document.createElement("img");
-    img.src = "../assets/iconReservation.png";
+    img.src = "../../assets/iconReservation.png";
     img.alt = "Icone de reserva";
 
     const divData = document.createElement("div");
