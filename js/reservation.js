@@ -23,6 +23,8 @@ function renderReservation(reservation) {
     }
 
     reservation.forEach(reserve => {
+        console.log(reserve);
+        
 
         if (reserve.reservationStatus === "PENDING") {
             statusText = "Pendente";
