@@ -16,17 +16,17 @@ export function buildReservationItem(id, libraryItem, client, reservationStatus,
     const divData = document.createElement("div");
     divData.classList.add("data");
 
-    const h2tilte = document.createElement("h2");
-    h2tilte.textContent = libraryItem;
-    h2tilte.classList.add("reservation-title");
+    const h2title = document.createElement("h2");
+    h2title.textContent = libraryItem;
+    h2title.classList.add("reservation-title");
 
-    const spanClient = document.createElement("span")
+    const spanClient = document.createElement("span");
     spanClient.textContent = client;
     spanClient.classList.add("client");
 
     const spanStatus = document.createElement("span");
     spanStatus.textContent = reservationStatus;
-    spanStatus.classList.add("satus");
+    spanStatus.classList.add("status");
 
     const pReturnDate = document.createElement("p");
     pReturnDate.textContent = reservationDate;
@@ -36,31 +36,38 @@ export function buildReservationItem(id, libraryItem, client, reservationStatus,
     divButtons.classList.add("buttons");
 
     const buttonConfirm = document.createElement("button");
-    buttonConfirm.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round" d="m4.5 12.75 6 6 9-13.5"></svg>`
+    
+    buttonConfirm.innerHTML = `<svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" width="20px" height="20px"><path stroke-linecap="round" stroke-linejoin="round" d="M4.5 12.75l6 6 9-13.5" /></svg>`;
 
     buttonConfirm.addEventListener("click", async () => {
         const reservation = {
             completeReservation: true
         };
 
-        const response = await fetch(`https://library-api-1-1.onrender.com/reservation/${id}`, {
-            method: "PATCH",
-            headers: {
-                "Content-Type": "application/json",
-                "Authorization": `Bearer ${token}`
-            },
-            body: JSON.stringify(reservation)
-        })
+        try {
+            const response = await fetch(`https://library-api-1-1.onrender.com/reservation/${id}`, {
+                method: "PATCH",
+                headers: {
+                    "Content-Type": "application/json",
+                    "Authorization": `Bearer ${token}`
+                },
+                body: JSON.stringify(reservation)
+            });
 
             if (!response.ok) {
                 const errorData = await response.json();
-                throw new Error(errorData.message);
+                throw new Error(errorData.message || "Erro ao atualizar");
             }  
-        loadReservation();
-    })
+            
+            loadReservation();
+
+        } catch (error) {
+            console.error("Falha na requisição:", error);
+        }
+    });
 
     divImage.append(img);
-    divData.append(h2tilte, spanClient, spanStatus, pReturnDate);
+    divData.append(h2title, spanClient, spanStatus, pReturnDate);
     divButtons.append(buttonConfirm);
 
     reservationItem.append(divImage, divData, divButtons);
